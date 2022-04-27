@@ -1,3 +1,5 @@
+import './style.css';
+
 const taskList = document.getElementById('list-tasks');
 
 const taskArr = [
