@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("const taskList = document.getElementById('list-tasks');\r\n\r\nconst taskArr = [\r\n    { description: 'Task 1', completed: true, index: 0 },\r\n    { description: 'Task 2', completed: true, index: 1 },\r\n    { description: 'Task 3', completed: true, index: 2 },\r\n];\r\n\r\nfunction appendTask(taskContent) {\r\n    const taskElement = `\r\n            <li class=\"task-item\">\r\n                <div class=\"task-content\">\r\n                    <input type=\"checkbox\" >\r\n                    <label>${taskContent}</label>\r\n                </div>\r\n                <div class=\"task-icons\">\r\n                    <i class=\"fa fa-ellipsis-v\"></i>\r\n                    <i class=\"fa fa-trash-o\"></i>\r\n                </div>\r\n            </li>\r\n    `;\r\n    taskList.insertAdjacentHTML('beforeend', taskElement);\r\n}\r\n\r\nfunction loadContent() {\r\n    taskArr.forEach((task) => {\r\n        appendTask(task.description);\r\n    });\r\n}\r\n\r\nloadContent();\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ })
 
