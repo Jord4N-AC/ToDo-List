@@ -2,7 +2,7 @@
 # ToDo-List
 
 > ## In this project, I built a simple To-Do App for managing the daily tasks and to keep track on tasks during the day.
-> 
+
 ## Live Link
 [Live version](https://jord4n-ac.github.io/ToDo-List/)
 
