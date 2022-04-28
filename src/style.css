@@ -1,0 +1,141 @@
+:root {
+  --primary-color: #545862;
+  --secondary-color: #999;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  color: var(--primary-color);
+
+  /* background-color: rgb(171, 206, 209); */
+
+  margin: auto;
+}
+
+.box-format {
+  display: flex;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 15px;
+}
+
+#list {
+  max-width: 600px;
+  margin: 100px auto;
+  border-radius: 3px;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+#list-header {
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, rgba(135, 135, 202, 0.73), rgba(197, 146, 188, 0.736));
+}
+
+#list-header h1 {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.fa {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.fa-refresh:hover {
+  text-shadow: 0 0 12px rgb(3, 217, 3);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+input {
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+}
+
+#list-input-group {
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-image: linear-gradient(to bottom right, rgba(72, 206, 255, 0.187), rgba(255, 197, 81, 0.227));
+}
+
+#list-input-text {
+  font-style: italic;
+  flex: 1 1 auto;
+  outline: transparent;
+}
+
+#list-input-text:hover::placeholder {
+  text-shadow: 0 0 5px orange;
+}
+
+#list-input-btn {
+  font-size: 22px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+#list-input-btn:hover {
+  border: 2px solid var(--primary-color);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  justify-content: space-between;
+}
+
+.task-item:hover {
+  box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.task-icons {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex: 0.08 0 auto;
+}
+
+.task-icons .fa {
+  flex: 1 0 auto;
+}
+
+.fa-trash-o:hover {
+  text-shadow: 0 0 5px rgb(255, 0, 0);
+}
+
+#clear-btn {
+  justify-content: center;
+  font-size: 18px;
+  background-color: #f6f6f6;
+  width: 100%;
+  border: none;
+  margin: auto;
+}
+
+#clear-btn:hover {
+  text-decoration: underline;
+}
+
+#clear-btn:active {
+  text-decoration: none;
+  box-shadow: 0 0 12px inset rgb(242, 129, 24);
+}
