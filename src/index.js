@@ -2,11 +2,7 @@ import './style.css';
 
 const taskList = document.getElementById('list-tasks');
 
-const taskArr = [
-  { description: 'Task 1', completed: true, index: 0 },
-  { description: 'Task 2', completed: true, index: 1 },
-  { description: 'Task 3', completed: true, index: 2 },
-];
+const taskArr = [];
 
 function appendTask(taskContent) {
   const taskElement = `
