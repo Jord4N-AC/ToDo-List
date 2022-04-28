@@ -10,14 +10,14 @@ const taskArr = [
 
 function appendTask(taskContent) {
     const taskElement = `
-            <li class="task-item">
+            <li class="task-item box-format">
                 <div class="task-content">
-                    <input type="checkbox" >
-                    <label>${taskContent}</label>
+                    <input class="pointer task-input" type="checkbox">
+                    <label class="task-label">${taskContent}</label>
                 </div>
                 <div class="task-icons">
+                    <i class="fa fa-trash-o pointer"></i>
                     <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-trash-o"></i>
                 </div>
             </li>
     `;

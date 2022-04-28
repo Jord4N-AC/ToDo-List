@@ -9,18 +9,18 @@
 </head>
 <body>
     <div id="list">
-        <header id="list-header">
+        <header id="list-header" class="box-format">
             <h1> Today's To Do</h1>
-            <i class="fa fa-refresh"></i>
+            <i class="fa fa-refresh pointer"></i>
         </header>
-        <div id="list-input">
-            <input type="text" placeholder="Add to your list....." required>
-            <input type="button" value="&#8626;">
+        <div id="list-input-group" class="box-format">
+            <input id="list-input-text" type="text" placeholder="Add to your list.....">
+            <input id="list-input-btn" class="pointer" type="button" value="&#8626;">
         </div>
         <ul id="list-tasks">
             <!-- Items added from js -->            
         </ul>
-        <button id="clear-btn">Clear all completed</button>
+        <button id="clear-btn" class="box-format pointer">Clear all completed</button>
     </div>
 </body>
 </html>
