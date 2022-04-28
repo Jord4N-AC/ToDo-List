@@ -3,13 +3,13 @@ import './style.css';
 const taskList = document.getElementById('list-tasks');
 
 const taskArr = [
-    { description: 'Task 1', completed: true, index: 0 },
-    { description: 'Task 2', completed: true, index: 1 },
-    { description: 'Task 3', completed: true, index: 2 },
+  { description: 'Task 1', completed: true, index: 0 },
+  { description: 'Task 2', completed: true, index: 1 },
+  { description: 'Task 3', completed: true, index: 2 },
 ];
 
 function appendTask(taskContent) {
-    const taskElement = `
+  const taskElement = `
             <li class="task-item box-format">
                 <div class="task-content">
                     <input class="pointer task-input" type="checkbox">
@@ -21,13 +21,13 @@ function appendTask(taskContent) {
                 </div>
             </li>
     `;
-    taskList.insertAdjacentHTML('beforeend', taskElement);
+  taskList.insertAdjacentHTML('beforeend', taskElement);
 }
 
 function loadContent() {
-    taskArr.forEach((task) => {
-        appendTask(task.description);
-    });
+  taskArr.forEach((task) => {
+    appendTask(task.description);
+  });
 }
 
 loadContent();

@@ -1,6 +1,6 @@
 :root {
   --primary-color: #545862;
-  --secondary-color: #999999;
+  --secondary-color: #999;
   --black: #000;
   --white: #fff;
 }
@@ -17,6 +17,7 @@ body {
   font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
   font-size: 18px;
   color: var(--primary-color);
+
   /* background-color: rgb(171, 206, 209); */
 
   margin: auto;
@@ -32,14 +33,12 @@ body {
   max-width: 600px;
   margin: 100px auto;
   border-radius: 3px;
-  
   box-shadow: 0 0 10px var(--primary-color);
 }
 
 #list-header {
   justify-content: space-between;
   align-items: center;
-
   background-image: linear-gradient(to bottom right, rgba(135, 135, 202, 0.73), rgba(197, 146, 188, 0.736));
 }
 
@@ -64,7 +63,6 @@ body {
 
 input {
   font-size: 18px;
-  
   background-color: transparent;
   border: none;
 }
@@ -73,13 +71,11 @@ input {
   justify-content: space-between;
   padding-top: 25px;
   padding-bottom: 25px;
-
-  background-image: linear-gradient(to bottom right, rgba(72, 206, 255, 0.187),rgba(255, 197, 81, 0.227));
+  background-image: linear-gradient(to bottom right, rgba(72, 206, 255, 0.187), rgba(255, 197, 81, 0.227));
 }
 
 #list-input-text {
   font-style: italic;
-
   flex: 1 1 auto;
   outline: transparent;
 }
@@ -120,19 +116,16 @@ ul {
 
 .task-icons .fa {
   flex: 1 0 auto;
-  color: ;
 }
 
 .fa-trash-o:hover {
-  text-shadow: 0 0 5px red;
+  text-shadow: 0 0 5px rgb(255, 0, 0);
 }
 
 #clear-btn {
   justify-content: center;
   font-size: 18px;
-
-  background-color: f6f6f6;
-
+  background-color: #f6f6f6;
   width: 100%;
   border: none;
   margin: auto;
