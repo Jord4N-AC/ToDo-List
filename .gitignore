@@ -1,8 +1,2 @@
 node_modules
 package-lock.json
-#Webhint
-.hintrc
-#Stylelint
-.stylelintrc.json
-#ESLint
-.eslintrc.json
