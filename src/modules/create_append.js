@@ -1,8 +1,12 @@
 import { taskList, taskInput } from './variables.js'
+import removeTask from './remove_task.js'
 
-export default function createAppendTask(content = taskInput.value, element = taskList) {
+
+export default function createAppendTask(
+    content = taskInput.value, element = taskList
+    ) {
     const taskElement = `
-            <li class="task-item box-format">
+            <li id="${taskList.childElementCount}" class="task-item box-format">
                 <div class="task-content">
                     <input class="pointer task-input" type="checkbox">
                     <label class="task-label">${content}</label>
@@ -14,4 +18,7 @@ export default function createAppendTask(content = taskInput.value, element = ta
             </li>`;
   
     element.insertAdjacentHTML('beforeend', taskElement);
+
+    
+    taskList.lastChild.children[1].children[0].addEventListener('click', removeTask);
   }
