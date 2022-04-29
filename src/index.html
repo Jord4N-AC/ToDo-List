@@ -13,10 +13,10 @@
             <h1> Today's To Do</h1>
             <i class="fa fa-refresh pointer"></i>
         </header>
-        <div id="list-input-group" class="box-format">
-            <input id="list-input-text" type="text" placeholder="Add to your list.....">
-            <input id="list-input-btn" class="pointer" type="button" value="&#8626;">
-        </div>
+        <form id="list-input-group" class="box-format">
+            <input id="list-input-text" type="text" placeholder="Add to your list....." required>
+            <input id="list-input-btn" class="pointer" type="submit" value="&#8626;" title="Add Task button">
+        </form>
         <ul id="list-tasks">
             <!-- Items added from js -->            
         </ul>
