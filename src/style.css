@@ -109,6 +109,10 @@ ul {
   box-shadow: 0 0 5px var(--secondary-color);
 }
 
+.completed-container {
+  background-color: rgba(98, 61, 15, 0.358);
+}
+
 .task-content {
   flex: 0 0 90%;
   display: flex;
@@ -117,6 +121,11 @@ ul {
 .task-label {
   flex: 0 1 100%;
   padding: 0 10px;
+}
+
+.completed {
+  color: #545862;
+  text-decoration: 2px black line-through;
 }
 
 .task-label:focus {

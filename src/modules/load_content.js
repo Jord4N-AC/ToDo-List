@@ -6,7 +6,7 @@ export default function loadContent(taskArr) {
   if (localData !== null) {
     taskArr = localData;
     taskArr.forEach((task) => {
-      createAppendTask(task.description);
+      createAppendTask(task.description, task.completed);
     });
   } else {
     taskArr = [];
