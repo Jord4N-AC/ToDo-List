@@ -22,8 +22,8 @@ addBtn.addEventListener('click', () => {
   }
 });
 
-addBtn.addEventListener('keydown', () => {
-  if (taskInput.value !== '') {
+addBtn.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && taskInput.value !== '') {
     createAppendTask();
     saveData();
     clearField();
