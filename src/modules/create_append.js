@@ -1,13 +1,14 @@
 // eslint-disable-next-line import/no-cycle
-import { taskList, taskInput } from './variables.js'
-import removeTask from './remove_task.js'
-import { saveOldContent, updateContent } from './edit_task.js'
-
+import { taskList, taskInput } from './variables.js';
+// eslint-disable-next-line import/no-cycle
+import removeTask from './remove_task.js';
+// eslint-disable-next-line import/no-cycle
+import { saveOldContent, updateContent } from './edit_task.js';
 
 export default function createAppendTask(
-    content = taskInput.value, element = taskList
-    ) {
-    const taskElement = `
+  content = taskInput.value, element = taskList,
+) {
+  const taskElement = `
             <li id="${taskList.childElementCount}" class="task-item box-format">
                 <div class="task-content">
                     <input class="pointer task-input" type="checkbox">
@@ -19,10 +20,9 @@ export default function createAppendTask(
                 </div>
             </li>`;
 
-    element.insertAdjacentHTML('beforeend', taskElement);
+  element.insertAdjacentHTML('beforeend', taskElement);
 
-
-    taskList.lastChild.children[1].children[0].addEventListener('click', removeTask);
-    taskList.lastChild.children[0].children[1].addEventListener('focus', saveOldContent);
-    taskList.lastChild.children[0].children[1].addEventListener('blur', updateContent);
-  }
+  taskList.lastChild.children[1].children[0].addEventListener('click', removeTask);
+  taskList.lastChild.children[0].children[1].addEventListener('focus', saveOldContent);
+  taskList.lastChild.children[0].children[1].addEventListener('blur', updateContent);
+}
