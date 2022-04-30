@@ -1,33 +1,30 @@
 import './style.css';
 
-const taskList = document.getElementById('list-tasks');
+import { taskInput, addBtn } from './modules/variables.js';
+import createAppendTask from './modules/create_append.js';
+import clearField from './modules/clear_field.js';
+import saveData from './modules/save_data.js';
 
-const taskArr = [
-  { description: 'Task 1', completed: true, index: 0 },
-  { description: 'Task 2', completed: true, index: 1 },
-  { description: 'Task 3', completed: true, index: 2 },
-];
+taskInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && taskInput.value !== '') {
+    createAppendTask();
+    saveData();
+    clearField();
+  }
+});
 
-function appendTask(taskContent) {
-  const taskElement = `
-            <li class="task-item box-format">
-                <div class="task-content">
-                    <input class="pointer task-input" type="checkbox">
-                    <label class="task-label">${taskContent}</label>
-                </div>
-                <div class="task-icons">
-                    <i class="fa fa-trash-o pointer"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                </div>
-            </li>
-    `;
-  taskList.insertAdjacentHTML('beforeend', taskElement);
-}
+addBtn.addEventListener('click', () => {
+  if (taskInput.value !== '') {
+    createAppendTask();
+    saveData();
+    clearField();
+  }
+});
 
-function loadContent() {
-  taskArr.forEach((task) => {
-    appendTask(task.description);
-  });
-}
-
-loadContent();
+addBtn.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && taskInput.value !== '') {
+    createAppendTask();
+    saveData();
+    clearField();
+  }
+});

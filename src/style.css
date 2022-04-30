@@ -101,17 +101,36 @@ ul {
 
 .task-item {
   justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 .task-item:hover {
   box-shadow: 0 0 5px var(--secondary-color);
 }
 
+.task-content {
+  flex: 0 0 90%;
+  display: flex;
+}
+
+.task-label {
+  flex: 0 1 100%;
+  padding: 0 10px;
+}
+
+.task-label:focus {
+  outline: 3px solid rgba(0, 0, 0, 0.283);
+  background-color: rgba(58, 174, 194, 0.255);
+  box-shadow: 0 0 15px rgba(58, 174, 194, 0.608);
+  border-radius: 8px;
+}
+
 .task-icons {
   text-align: center;
   display: flex;
   justify-content: space-between;
-  flex: 0.08 0 auto;
+  flex: 0 0 10%;
 }
 
 .task-icons .fa {

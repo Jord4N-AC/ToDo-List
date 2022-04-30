@@ -21,7 +21,7 @@ To get a local copy up and running follow these simple example steps.
 
 `git clone git@github.com:Jord4N-AC/ToDo-List.git`
 
-Then `cd Todo-list`
+Then `cd ToDo-List`
 
 Then `npm install` to install packages
 
