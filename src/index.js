@@ -6,11 +6,15 @@ import clearField from './modules/clear_field.js';
 import saveData from './modules/save_data.js';
 import removeAllCompleted from './modules/remove_completed.js';
 
+
 taskInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && taskInput.value !== '') {
-    saveData();
-    createAppendTask();
-    clearField();
+  if (
+    taskInput.value !== ''
+    && event.key === 'Enter'
+    ) {
+      saveData();
+      createAppendTask();
+      clearField();
   }
 });
 
@@ -23,7 +27,10 @@ addBtn.addEventListener('click', () => {
 });
 
 addBtn.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && taskInput.value !== '') {
+  if (
+    taskInput.value !== ''
+    && event.key === 'Enter'
+    ) {
     saveData();
     createAppendTask();
     clearField();

@@ -8,10 +8,11 @@ export function saveOldContent() {
 }
 
 export function updateContent() {
-  if (this.innerHTML === '') {
-    this.innerHTML = oldText;
+  this.innerText = this.innerText.trim().replace(/\s+/g, ' ');
+  if (this.innerText === '') {
+    this.innerText = oldText;
   }
 
-  taskArr[this.parentElement.parentElement.id].description = this.textContent;
+  taskArr[this.parentElement.parentElement.id].description = this.innerText;
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
 }

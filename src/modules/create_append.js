@@ -4,10 +4,11 @@ import { taskList, taskInput, taskArr } from './variables.js';
 import removeTask from './remove_task.js';
 // eslint-disable-next-line import/no-cycle
 import { saveOldContent, updateContent } from './edit_task.js';
+// eslint-disable-next-line linebreak-style
 import { checkStatus, completedStyle } from './task_status.js';
 
 export default function createAppendTask(
-  task = taskInput.value, status = taskArr.completed, element = taskList,
+  task = taskInput.value.trim().replace(/\s+/g, ' '), status = taskArr.completed, element = taskList,
 ) {
   const taskElement = `
             <li id="${taskList.childElementCount}" class="task-item box-format">
@@ -29,6 +30,6 @@ export default function createAppendTask(
   taskList.lastChild.children[0].children[0].addEventListener('change', checkStatus);
 
   taskList.lastChild.children[1].children[0].addEventListener('click', removeTask);
-  taskList.lastChild.children[0].children[1].addEventListener('focus', saveOldContent);
+  taskList.lastChild.children[0].children[1].addEventListener('click', saveOldContent, true);
   taskList.lastChild.children[0].children[1].addEventListener('blur', updateContent);
 }
