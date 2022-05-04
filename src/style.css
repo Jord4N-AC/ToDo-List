@@ -172,8 +172,8 @@ ul {
 .msg {
   visibility: hidden;
 
-  font-size: 22px;
   text-align: center;
+  font-size: 22px;
   width: fit-content;
   
   padding: 16px;
@@ -192,13 +192,19 @@ ul {
   color: #4f8a10;
   border: 1px solid #618d32;
   box-shadow: 0 0 15px #4f8a108c;
-
 }
 
-#success-msg.show {
+.show {
   visibility: visible;
 
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#repeated-msg {
+  background-color: rgba(255, 210, 210, 0.654);
+  color: #d8000c;
+  border: 1px solid #d8000c;
+  box-shadow: 0 0 15px #8a10108c;
 }
 
 @keyframes fadein {
@@ -217,8 +223,16 @@ ul {
   box-shadow: 0 0 15px #4f8a10c4 inset;
 }
 
-#repeated-msg {
-  visibility: hidden;
-  background-color: #ffd2d2c4;
-  color: #d8000c;
+.highlight-recent {
+  background-color: #4f8a109d;  
+}
+
+.task-repeated,
+.task-repeated:hover {
+  border: 1px solid #d8000c;
+  box-shadow: 0 0 15px #8a10108c inset;
+}
+
+.highlight-repeated {
+  background-color: #8a10104d;  
 }

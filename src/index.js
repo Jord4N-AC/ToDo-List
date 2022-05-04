@@ -1,44 +1,115 @@
 import './style.css';
 
-import { taskList, taskInput, addBtn, taskArr, clearBtn } from './modules/variables.js';
+import { taskList, taskInput, addBtn, taskForm, taskArr, clearBtn, successMessage, repeatedMessage } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
 import clearField from './modules/clear_field.js';
 import saveData from './modules/save_data.js';
 import removeAllCompleted from './modules/remove_completed.js';
-import showSuccessMessage from './modules/alert_messages.js';
+import showMessage from './modules/alert_messages.js';
 
 
-taskInput.addEventListener('keydown', (event) => {
-  if (
-    taskInput.value !== ''
-    && event.key === 'Enter'
-    ) {
-      saveData();
-      createAppendTask();
-      showSuccessMessage();
-      clearField();
+taskForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
+
+taskInput.addEventListener('input', () => {
+  if (document.getElementsByClassName('task-repeated').length > 0) {
+    document.getElementsByClassName('task-repeated')[0].removeAttribute('title');
+    document.getElementsByClassName('task-repeated')[0].classList.toggle('task-repeated');
+  }
+
+  if (document.getElementsByClassName('show').length > 0) {
+      document.getElementsByClassName('show')[0].classList.toggle('show');
   }
 });
+
+
+
+taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().replace(/\s+/g, ' ')) => {
+  if (
+    event.key === 'Enter'
+    && taskArr.find((task) => task.description.toLowerCase() === inputTrimed.toLowerCase())
+    ) {
+      taskInput.value = inputTrimed;
+      showMessage(
+        repeatedMessage,
+        document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
+        === inputTrimed.toLowerCase())),
+        'task-repeated',
+        'Repeated Tasks',
+        'highlight-repeated',
+        );
+      } else if (inputTrimed !== '' && event.key === 'Enter') {
+        saveData();
+        createAppendTask();
+        showMessage(
+          successMessage,
+          taskList.children[taskList.childElementCount - 1],
+          'recent-added',
+          'Recent added',
+          'highlight-recent',
+          );
+          clearField();
+        }
+});
+
+
 
 addBtn.addEventListener('click', () => {
-  if (taskInput.value !== '') {
-    saveData();
-    createAppendTask();
-    showSuccessMessage();
-    clearField();
-  }
+  taskInput.value = taskInput.value.trim().replace(/\s+/g, ' ');
+  if (
+    taskArr.find((task) => task.description.toLowerCase() === taskInput.value.toLowerCase())
+    ) {
+      showMessage(
+        repeatedMessage,
+        document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
+        === taskInput.value.toLowerCase())),
+        'task-repeated',
+        'Repeated Tasks',
+        'highlight-repeated',
+        );
+      } else if (taskInput.value !== '') {
+        saveData();
+        createAppendTask();
+        showMessage(
+          successMessage,
+          taskList.children[taskList.childElementCount - 1],
+          'recent-added',
+          'Recent added',
+          'highlight-recent',
+          );
+          clearField();
+        }
 });
 
-addBtn.addEventListener('keydown', (event) => {
+
+
+addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().replace(/\s+/g, ' ')) => {
   if (
-    taskInput.value !== ''
+    taskArr.find((task) => task.description.toLowerCase() === inputTrimed.toLowerCase())
     && event.key === 'Enter'
     ) {
-      saveData();
-      createAppendTask();
-      showSuccessMessage();
-    clearField();
-  }
+      showMessage(
+        repeatedMessage,
+        document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
+        === inputTrimed.toLowerCase())),
+        'task-repeated',
+        'Repeated Tasks',
+        'highlight-repeated',
+        );
+      } else if (inputTrimed !== '' && event.key === 'Enter') {
+        taskInput.value = inputTrimed;
+        saveData();
+        createAppendTask();
+        showMessage(
+          successMessage,
+          taskList.children[taskList.childElementCount - 1],
+          'recent-added',
+          'Recent added',
+          'highlight-recent',
+          );
+          clearField();
+        }
 });
 
 

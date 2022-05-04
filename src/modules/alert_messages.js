@@ -1,24 +1,35 @@
-import { taskList, taskInput, successMessage } from './variables.js';
+import { taskInput } from './variables.js';
 
-export default function showSuccessMessage() {
-    if (successMessage.classList.contains('show')) {
-      successMessage.classList.toggle('show');
-    }
+
+export default function showMessage(
+    message, element, elementClass, titleAttribute, highlightClass
+    ) {
+      if (message.classList.contains('show')) {
+        message.classList.toggle('show');
+      }
+      
+      message.classList.toggle('show');
+      element.classList.toggle(highlightClass);
+      
+      setTimeout(() => { message.classList.toggle('show'); }, 1000);
+      
+      if (document.getElementsByClassName(elementClass).length > 0) {
+        document.getElementsByClassName(elementClass)[0].removeAttribute('title');
+        document.getElementsByClassName(elementClass)[0].classList.toggle(elementClass);
+      }
+  
+      element.classList.toggle(elementClass);
+      element.title = titleAttribute;
+  
+      taskInput.blur();
+  
+      
+      setTimeout(() => {
+        element.scrollIntoView()
+    }, 80);
     
-    successMessage.classList.toggle('show');
-    setTimeout(() => { successMessage.classList.toggle('show'); }, 800);
-    
-    if (document.getElementsByClassName('recent-added').length > 0) {
-      document.getElementsByClassName('recent-added')[0].removeAttribute('title');
-      document.getElementsByClassName('recent-added')[0].classList.toggle('recent-added');
-    }
-    
-    taskList.children[taskList.childElementCount - 1].classList.toggle('recent-added');
-    taskList.children[taskList.childElementCount - 1].title = 'Recent added';
-    taskInput.blur();
-    setTimeout(() => {
-      document.getElementById(taskList.childElementCount - 1).scrollIntoView(); 
-    }, 100);
-    
-    setTimeout(() => { taskInput.focus(); }, 900);
+    setTimeout(() => { 
+        element.classList.toggle(highlightClass);
+        taskInput.focus(); 
+    }, 900);
   }
