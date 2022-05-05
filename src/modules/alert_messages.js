@@ -1,8 +1,5 @@
-import { taskInput } from './variables.js';
-
-
 export default function showMessage(
-    message, element, elementClass, titleAttribute, highlightClass
+    message, element, elementClass, titleAttribute, highlightClass, taskInput
     ) {
       if (message.classList.contains('show')) {
         message.classList.toggle('show');

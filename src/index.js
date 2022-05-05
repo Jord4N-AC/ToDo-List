@@ -38,18 +38,20 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
         'task-repeated',
         'Repeated Tasks',
         'highlight-repeated',
+        taskInput,
         );
       } else if (inputTrimed !== '' && event.key === 'Enter') {
-        saveData(inputTrimed);
-        createAppendTask(taskInput.value);
+        saveData(inputTrimed, taskArr);
+        createAppendTask(taskInput.value, taskArr, taskList);
         showMessage(
           successMessage,
           taskList.children[taskList.childElementCount - 1],
           'recent-added',
           'Recent added',
           'highlight-recent',
+          taskInput,
           );
-          clearField();
+          clearField(taskInput);
         }
 });
 
@@ -67,18 +69,20 @@ addBtn.addEventListener('click', () => {
         'task-repeated',
         'Repeated Tasks',
         'highlight-repeated',
+        taskInput,
         );
       } else if (taskInput.value !== '') {
-        saveData(taskInput.value);
-        createAppendTask(taskInput.value);
+        saveData(taskInput.value, taskArr);
+        createAppendTask(taskInput.value, taskArr, taskList);
         showMessage(
           successMessage,
           taskList.children[taskList.childElementCount - 1],
           'recent-added',
           'Recent added',
           'highlight-recent',
+          taskInput,
           );
-          clearField();
+          clearField(taskInput);
         }
 });
 
@@ -96,25 +100,23 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
         'task-repeated',
         'Repeated Tasks',
         'highlight-repeated',
+        taskInput,
         );
       } else if (inputTrimed !== '' && event.key === 'Enter') {
         // taskInput.value = inputTrimed;
-        saveData(inputTrimed);
-        createAppendTask(inputTrimed);
+        saveData(inputTrimed, taskArr);
+        createAppendTask(inputTrimed, taskArr, taskList);
         showMessage(
           successMessage,
           taskList.children[taskList.childElementCount - 1],
           'recent-added',
           'Recent added',
           'highlight-recent',
+          taskInput,
           );
-          clearField();
+          clearField(taskInput);
         }
 });
 
 
 clearBtn.addEventListener('click', removeAllCompleted);
-
-window.addEventListener('click', () => {
-  console.log(taskArr);
-});
