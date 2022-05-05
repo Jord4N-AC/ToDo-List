@@ -171,15 +171,12 @@ ul {
 /* Messages */
 .msg {
   visibility: hidden;
-
   text-align: center;
   font-size: 22px;
   width: fit-content;
-  
   padding: 16px;
   margin: 0 auto;
   border-radius: 4px;
-  
   z-index: 5;
   position: fixed;
   top: 40px;
@@ -196,7 +193,6 @@ ul {
 
 .show {
   visibility: visible;
-
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
@@ -208,13 +204,27 @@ ul {
 }
 
 @keyframes fadein {
-  from {top: 0; opacity: 0;}
-  to {top: 40px; opacity: 1;}
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 40px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadeout {
-  from {top: 40px; opacity: 1;}
-  to {top: 0; opacity: 0;}
+  from {
+    top: 40px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
 
 .recent-added,
@@ -224,7 +234,7 @@ ul {
 }
 
 .highlight-recent {
-  background-color: #4f8a109d;  
+  background-color: #4f8a109d;
 }
 
 .task-repeated,
@@ -234,5 +244,5 @@ ul {
 }
 
 .highlight-repeated {
-  background-color: #8a10104d;  
+  background-color: #8a10104d;
 }
