@@ -12,12 +12,12 @@ taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
+
 taskInput.addEventListener('input', () => {
   if (document.getElementsByClassName('task-repeated').length > 0) {
     document.getElementsByClassName('task-repeated')[0].removeAttribute('title');
     document.getElementsByClassName('task-repeated')[0].classList.toggle('task-repeated');
   }
-
   if (document.getElementsByClassName('show').length > 0) {
       document.getElementsByClassName('show')[0].classList.toggle('show');
   }
@@ -40,8 +40,8 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
         'highlight-repeated',
         );
       } else if (inputTrimed !== '' && event.key === 'Enter') {
-        saveData();
-        createAppendTask();
+        saveData(inputTrimed);
+        createAppendTask(taskInput.value);
         showMessage(
           successMessage,
           taskList.children[taskList.childElementCount - 1],
@@ -69,8 +69,8 @@ addBtn.addEventListener('click', () => {
         'highlight-repeated',
         );
       } else if (taskInput.value !== '') {
-        saveData();
-        createAppendTask();
+        saveData(taskInput.value);
+        createAppendTask(taskInput.value);
         showMessage(
           successMessage,
           taskList.children[taskList.childElementCount - 1],
@@ -98,9 +98,9 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
         'highlight-repeated',
         );
       } else if (inputTrimed !== '' && event.key === 'Enter') {
-        taskInput.value = inputTrimed;
-        saveData();
-        createAppendTask();
+        // taskInput.value = inputTrimed;
+        saveData(inputTrimed);
+        createAppendTask(inputTrimed);
         showMessage(
           successMessage,
           taskList.children[taskList.childElementCount - 1],

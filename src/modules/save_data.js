@@ -1,6 +1,6 @@
-import { taskInput, taskArr } from './variables.js';
+import { taskArr } from './variables.js';
 
-export default function saveData(arr = taskArr, value = taskInput.value.trim().replace(/\s+/g, ' ')) {
+export default function saveData(value, arr = taskArr) {
   arr.push({ description: value, completed: false, index: arr.length });
   localStorage.setItem('taskArray', JSON.stringify(arr));
 }
