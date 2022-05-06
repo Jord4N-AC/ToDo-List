@@ -27,5 +27,6 @@ export default function showMessage(
   setTimeout(() => {
     element.classList.toggle(highlightClass);
     taskInput.focus();
+    document.body.scrollTop = 0;
   }, 900);
 }
