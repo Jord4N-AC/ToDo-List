@@ -15,6 +15,7 @@ export default function loadContent(taskArr) {
     });
   } else {
     taskArr = [];
+    localStorage.setItem('taskArray', JSON.stringify(taskArr));
   }
 
   return taskArr;
