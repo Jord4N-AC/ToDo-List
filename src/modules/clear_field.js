@@ -1,6 +1,3 @@
-import { taskInput } from './variables.js';
-
-export default function clearField(element = taskInput) {
+export default function clearField(element) {
   element.value = '';
-  element.focus();
 }

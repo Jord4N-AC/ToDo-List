@@ -109,6 +109,10 @@ ul {
   box-shadow: 0 0 5px var(--secondary-color);
 }
 
+.completed-container {
+  background-color: rgba(98, 61, 15, 0.358);
+}
+
 .task-content {
   flex: 0 0 90%;
   display: flex;
@@ -117,6 +121,11 @@ ul {
 .task-label {
   flex: 0 1 100%;
   padding: 0 10px;
+}
+
+.completed {
+  color: #545862;
+  text-decoration: 2px black line-through;
 }
 
 .task-label:focus {
@@ -157,4 +166,83 @@ ul {
 #clear-btn:active {
   text-decoration: none;
   box-shadow: 0 0 12px inset rgb(242, 129, 24);
+}
+
+/* Messages */
+.msg {
+  visibility: hidden;
+  text-align: center;
+  font-size: 22px;
+  width: fit-content;
+  padding: 16px;
+  margin: 0 auto;
+  border-radius: 4px;
+  z-index: 5;
+  position: fixed;
+  top: 40px;
+  left: 0%;
+  right: 0%;
+}
+
+#success-msg {
+  background-color: #dff2bf7a;
+  color: #4f8a10;
+  border: 1px solid #618d32;
+  box-shadow: 0 0 15px #4f8a108c;
+}
+
+.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#repeated-msg {
+  background-color: rgba(255, 210, 210, 0.654);
+  color: #d8000c;
+  border: 1px solid #d8000c;
+  box-shadow: 0 0 15px #8a10108c;
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 40px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 40px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+.recent-added,
+.recent-added:hover {
+  border: 1px solid #4f8a10;
+  box-shadow: 0 0 15px #4f8a10c4 inset;
+}
+
+.highlight-recent {
+  background-color: #4f8a109d;
+}
+
+.task-repeated,
+.task-repeated:hover {
+  border: 1px solid #d8000c;
+  box-shadow: 0 0 15px #8a10108c inset;
+}
+
+.highlight-repeated {
+  background-color: #8a10104d;
 }
