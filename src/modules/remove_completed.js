@@ -1,6 +1,5 @@
 import { taskList, taskArr } from './variables.js';
 
-
 export default function removeAllCompleted(newArr) {
   newArr = taskArr.filter((task, i) => {
     if (task.completed) {
