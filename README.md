@@ -25,6 +25,8 @@ Then `cd ToDo-List`
 
 Then `npm install` to install packages
 
+Then `npm test` to test the code
+
 Finally `npm start`
 
 
@@ -38,10 +40,16 @@ Finally `npm start`
 For deployment please rich out to the owner of this project
 
 ## Authors
-👤 Jordan A
+👤 **Jordan A**
 - GitHub: [Jord4N-AC](https://github.com/Jord4N-AC)
 - Twitter: [@jordan12AC](https://twitter.com/jordan12AC)
 - LinkedIn: [Camilo Armijos](https://www.linkedin.com/in/camilo-armijos-2b9648197)
+
+👤 **Lucas Costa Rodrigues**
+- GitHub: [@lucas-crodrigues](https://github.com/lucas-crodrigues)
+- Twitter: [@lcrodrigues58](https://twitter.com/lcrodrigues58)
+- LinkedIn: [Lucas Costa Rodrigues](https://www.linkedin.com/in/lucascostarodrigues/)
+
 
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
