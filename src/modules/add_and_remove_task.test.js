@@ -30,12 +30,12 @@ describe('Add and remove tests', () => {
           </li>
         </ul>
       </div>`;
-  
+
     document.querySelector('.fa-trash-o').addEventListener('click', removeTask);
-  
+
     document.querySelector('.fa-trash-o').click();
-  
+
     const list = document.querySelectorAll('.task-item');
     expect(list).toHaveLength(0);
   });
-})
+});
