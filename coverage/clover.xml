@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652374418506" clover="3.2.0">
-  <project timestamp="1652374418507" name="All files">
+<coverage generated="1652377477232" clover="3.2.0">
+  <project timestamp="1652377477233" name="All files">
     <metrics statements="50" coveredstatements="26" conditionals="10" coveredconditionals="1" methods="10" coveredmethods="3" elements="70" coveredelements="30" complexity="0" loc="50" ncloc="50" packages="1" files="6" classes="6"/>
     <file name="create_append.js" path="D:\VSC\MicroversProjects\ToDo-List\src\modules\create_append.js">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

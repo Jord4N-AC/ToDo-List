@@ -1,7 +1,7 @@
-import removeTask from './remove_task'
+import removeTask from './remove_task.js';
 
 test('Test removeTask function', () => {
-    document.body.innerHTML= `
+  document.body.innerHTML = `
     <div>
       <ul id="list-tasks">
         <li id="0" class="task-item box-format">
@@ -15,12 +15,12 @@ test('Test removeTask function', () => {
             </div>
         </li>
       </ul>
-    </div>`
+    </div>`;
 
-    document.querySelector('.fa-trash-o').addEventListener('click', removeTask);
+  document.querySelector('.fa-trash-o').addEventListener('click', removeTask);
 
-    document.querySelector('.fa-trash-o').click();
+  document.querySelector('.fa-trash-o').click();
 
-    const list = document.querySelectorAll('.task-item');
-    expect(list).toHaveLength(0);
+  const list = document.querySelectorAll('.task-item');
+  expect(list).toHaveLength(0);
 });
