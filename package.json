@@ -1,5 +1,9 @@
 {
   "name": "todo-list",
+  "jest": {
+    "resetMocks": false,
+    "testEnvironment": "jsdom"
+  },
   "version": "1.0.0",
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)\r # ToDo-List",
   "private": true,
@@ -29,6 +33,7 @@
     "hint": "^6.1.12",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "mini-css-extract-plugin": "^2.6.0",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
