@@ -12,8 +12,9 @@ import loadContent from './modules/load_content.js';
 
 // -------
 import { checkStatus, checkTask } from './modules/task_status.js';
+import removeTask from './modules/remove_task.js';
 
-const taskArr = loadContent(checkStatus, checkTask);
+const taskArr = loadContent(checkStatus, checkTask, removeTask);
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -47,7 +48,7 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     saveData(inputTrimed, taskArr);
     createAppendTask(taskInput.value, taskArr, taskArr.length - 1, taskList,
-      checkStatus, checkTask);
+      checkStatus, checkTask, removeTask);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -77,7 +78,7 @@ addBtn.addEventListener('click', () => {
   } else if (taskInput.value !== '') {
     saveData(taskInput.value, taskArr);
     createAppendTask(taskInput.value, taskArr, taskArr.length - 1, taskList,
-      checkStatus, checkTask);
+      checkStatus, checkTask, removeTask);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -108,7 +109,7 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
     // taskInput.value = inputTrimed;
     saveData(inputTrimed, taskArr);
     createAppendTask(inputTrimed, taskArr, taskArr.length - 1, taskList,
-      checkStatus, checkTask);
+      checkStatus, checkTask, removeTask);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],

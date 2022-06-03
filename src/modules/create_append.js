@@ -1,12 +1,12 @@
-// eslint-disable-next-line import/no-cycle
-import removeTask from './remove_task.js';
+// import removeTask from './remove_task.js';
 // eslint-disable-next-line import/no-cycle
 import { saveOldContent, updateContent } from './edit_task.js';
+
 
 export default function createAppendTask(
   task, taskArr, i, taskList,
   // events
-  checkStatus, checkTask,
+  checkStatus, checkTask, removeTask,
 ) {
   const taskElement = `
             <li id="${taskList.childElementCount}" class="task-item box-format">
@@ -29,7 +29,10 @@ export default function createAppendTask(
   });
   taskList.lastChild.children[0].children[0].addEventListener('keydown', checkTask);
 
-  taskList.lastChild.children[1].children[0].addEventListener('click', removeTask);
+  taskList.lastChild.children[1].children[0].addEventListener('click', (event) => {
+    // console.log('createAppend', this);
+    removeTask(event, taskArr, taskList);
+  });
   taskList.lastChild.children[0].children[1].addEventListener('click', saveOldContent, true);
   taskList.lastChild.children[0].children[1].addEventListener('blur', updateContent);
 }
