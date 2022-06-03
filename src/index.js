@@ -10,7 +10,6 @@ import removeAllCompleted from './modules/remove_completed.js';
 import showMessage from './modules/alert_messages.js';
 import loadContent from './modules/load_content.js';
 
-// -------
 import { checkStatus, checkTask } from './modules/task_status.js';
 import removeTask from './modules/remove_task.js';
 
@@ -122,8 +121,6 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   }
 });
 
-clearBtn.addEventListener('click', removeAllCompleted);
-
-window.addEventListener('click', () => {
-  // console.log(taskArr);
+clearBtn.addEventListener('click', () => {
+  removeAllCompleted(taskArr, taskList);
 });

@@ -1,8 +1,6 @@
-import { taskList,
-  // taskArr
-} from './variables.js';
+// Remove all completed items and update ids
 
-export default function removeAllCompleted(newArr, taskArr) {
+export default function removeAllCompleted(taskArr, taskList, newArr) {
   newArr = taskArr.filter((task, i) => {
     if (task.completed) {
       document.getElementById(i).remove();

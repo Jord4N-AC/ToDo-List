@@ -1,7 +1,5 @@
-// import removeTask from './remove_task.js';
-// eslint-disable-next-line import/no-cycle
+// Create a Book and Add event listeners
 import { saveOldContent, updateContent } from './edit_task.js';
-
 
 export default function createAppendTask(
   task, taskArr, i, taskList,
@@ -30,7 +28,6 @@ export default function createAppendTask(
   taskList.lastChild.children[0].children[0].addEventListener('keydown', checkTask);
 
   taskList.lastChild.children[1].children[0].addEventListener('click', (event) => {
-    // console.log('createAppend', this);
     removeTask(event, taskArr, taskList);
   });
   taskList.lastChild.children[0].children[1].addEventListener('click', saveOldContent, true);
