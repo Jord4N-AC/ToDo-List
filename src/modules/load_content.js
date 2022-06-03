@@ -5,16 +5,19 @@ import createAppendTask from './create_append.js';
 // eslint-disable-next-line import/no-cycle
 import { completedStyle } from './task_status.js';
 
-export default function loadContent(taskArr) {
+export default function loadContent(
+  checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+  taskArr = [],
+) {
   const localData = JSON.parse(localStorage.getItem('taskArray'));
   if (localData !== null) {
     taskArr = localData;
-    taskArr.forEach((task, i) => {
-      createAppendTask(task.description, task, taskList);
+    taskArr.forEach((task, i, arr) => {
+      createAppendTask(task.description, arr, i, taskList,
+        checkStatus, checkTask, removeTask, saveOldContent, updateContent);
       completedStyle(task, i);
     });
   } else {
-    taskArr = [];
     localStorage.setItem('taskArray', JSON.stringify(taskArr));
   }
 

@@ -1,13 +1,20 @@
 import './style.css';
 
 import {
-  taskList, taskInput, addBtn, taskForm, taskArr, clearBtn, successMessage, repeatedMessage,
+  taskList, taskInput, addBtn, taskForm, clearBtn, successMessage, repeatedMessage,
 } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
 import clearField from './modules/clear_field.js';
 import saveData from './modules/save_data.js';
 import removeAllCompleted from './modules/remove_completed.js';
 import showMessage from './modules/alert_messages.js';
+import loadContent from './modules/load_content.js';
+
+import { checkStatus, checkTask } from './modules/task_status.js';
+import removeTask from './modules/remove_task.js';
+import { saveOldContent, updateContent } from './modules/edit_task.js';
+
+const taskArr = loadContent(checkStatus, checkTask, removeTask, saveOldContent, updateContent);
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -40,7 +47,8 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
     );
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     saveData(inputTrimed, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskList);
+    createAppendTask(taskInput.value, taskArr, taskArr.length - 1, taskList,
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -69,7 +77,8 @@ addBtn.addEventListener('click', () => {
     );
   } else if (taskInput.value !== '') {
     saveData(taskInput.value, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskList);
+    createAppendTask(taskInput.value, taskArr, taskArr.length - 1, taskList,
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -99,7 +108,8 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     // taskInput.value = inputTrimed;
     saveData(inputTrimed, taskArr);
-    createAppendTask(inputTrimed, taskArr, taskList);
+    createAppendTask(inputTrimed, taskArr, taskArr.length - 1, taskList,
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -112,4 +122,6 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   }
 });
 
-clearBtn.addEventListener('click', removeAllCompleted);
+clearBtn.addEventListener('click', () => {
+  removeAllCompleted(taskArr, taskList);
+});
