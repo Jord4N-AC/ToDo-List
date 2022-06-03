@@ -1,6 +1,8 @@
-import { taskList, taskArr } from './variables.js';
+import { taskList,
+  // taskArr
+} from './variables.js';
 
-export default function removeAllCompleted(newArr) {
+export default function removeAllCompleted(newArr, taskArr) {
   newArr = taskArr.filter((task, i) => {
     if (task.completed) {
       document.getElementById(i).remove();

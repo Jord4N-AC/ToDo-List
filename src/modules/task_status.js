@@ -1,16 +1,16 @@
 // eslint-disable-next-line import/no-cycle
-import { taskArr } from './variables.js';
+// import { taskArr } from './variables.js';
 
-export function checkStatus() {
-  if (this.checked) {
-    this.nextElementSibling.classList.toggle('completed');
-    this.parentElement.parentElement.classList.toggle('completed-container');
+export function checkStatus(event, taskArr) {
+  if (event.target.checked) {
+    event.target.nextElementSibling.classList.toggle('completed');
+    event.target.parentElement.parentElement.classList.toggle('completed-container');
   } else {
-    this.nextElementSibling.classList.toggle('completed');
-    this.parentElement.parentElement.classList.toggle('completed-container');
+    event.target.nextElementSibling.classList.toggle('completed');
+    event.target.parentElement.parentElement.classList.toggle('completed-container');
   }
 
-  taskArr[this.parentElement.parentElement.id].completed = this.checked;
+  taskArr[event.target.parentElement.parentElement.id].completed = event.target.checked;
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
 }
 
