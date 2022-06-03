@@ -8,7 +8,7 @@ import { completedStyle } from './task_status.js';
 export default function loadContent(
   checkStatus, checkTask, removeTask, saveOldContent, updateContent,
   taskArr = [],
-  ) {
+) {
   const localData = JSON.parse(localStorage.getItem('taskArray'));
   if (localData !== null) {
     taskArr = localData;
