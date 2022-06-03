@@ -16,8 +16,8 @@ import { saveOldContent, updateContent } from './modules/edit_task.js';
 
 const taskArr = loadContent(
   createAppendTask, taskList, checkStatus, completedStyle,
-  checkTask, removeTask, saveOldContent, updateContent
-  );
+  checkTask, removeTask, saveOldContent, updateContent,
+);
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
