@@ -4,17 +4,20 @@ import {
   taskList, taskInput, addBtn, taskForm, clearBtn, successMessage, repeatedMessage,
 } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
-import clearField from './modules/clear_field.js';
 import saveData from './modules/save_data.js';
+import removeTask from './modules/remove_task.js';
 import removeAllCompleted from './modules/remove_completed.js';
 import showMessage from './modules/alert_messages.js';
+import clearField from './modules/clear_field.js';
 import loadContent from './modules/load_content.js';
 
-import { checkStatus, checkTask } from './modules/task_status.js';
-import removeTask from './modules/remove_task.js';
+import { checkStatus, completedStyle, checkTask } from './modules/task_status.js';
 import { saveOldContent, updateContent } from './modules/edit_task.js';
 
-const taskArr = loadContent(checkStatus, checkTask, removeTask, saveOldContent, updateContent);
+const taskArr = loadContent(
+  createAppendTask, taskList, checkStatus, completedStyle,
+  checkTask, removeTask, saveOldContent, updateContent
+  );
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();

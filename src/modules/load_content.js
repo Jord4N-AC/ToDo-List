@@ -1,16 +1,11 @@
-// eslint-disable-next-line import/no-cycle
-import { taskList } from './variables.js';
-// eslint-disable-next-line import/no-cycle
-import createAppendTask from './create_append.js';
-// eslint-disable-next-line import/no-cycle
-import { completedStyle } from './task_status.js';
-
+// Load content from localStorage and return an Array
 export default function loadContent(
-  checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+  createAppendTask, taskList, checkStatus, completedStyle,
+  checkTask, removeTask, saveOldContent, updateContent,
   taskArr = [],
+  localData = JSON.parse(localStorage.getItem('taskArray')),
 ) {
-  const localData = JSON.parse(localStorage.getItem('taskArray'));
-  if (localData !== null) {
+  if (localData) {
     taskArr = localData;
     taskArr.forEach((task, i, arr) => {
       createAppendTask(task.description, arr, i, taskList,

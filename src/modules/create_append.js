@@ -1,6 +1,4 @@
 // Create a Book and Add event listeners
-// import { saveOldContent } from './edit_task.js';
-
 export default function createAppendTask(
   task, taskArr, i, taskList,
   // events
