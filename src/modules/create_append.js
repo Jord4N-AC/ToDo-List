@@ -1,10 +1,10 @@
 // Create a Book and Add event listeners
-import { saveOldContent, updateContent } from './edit_task.js';
+// import { saveOldContent } from './edit_task.js';
 
 export default function createAppendTask(
   task, taskArr, i, taskList,
   // events
-  checkStatus, checkTask, removeTask,
+  checkStatus, checkTask, removeTask, saveOldContent, updateContent,
 ) {
   const taskElement = `
             <li id="${taskList.childElementCount}" class="task-item box-format">
@@ -31,5 +31,7 @@ export default function createAppendTask(
     removeTask(event, taskArr, taskList);
   });
   taskList.lastChild.children[0].children[1].addEventListener('click', saveOldContent, true);
-  taskList.lastChild.children[0].children[1].addEventListener('blur', updateContent);
+  taskList.lastChild.children[0].children[1].addEventListener('blur', (event) => {
+    updateContent(event, taskArr);
+  });
 }

@@ -1,18 +1,17 @@
-// eslint-disable-next-line import/no-cycle
-// import { taskArr } from './variables.js';
-
 let oldText;
 
+// Save text to use it if you try to add empty text
 export function saveOldContent() {
   oldText = this.textContent;
 }
 
-export function updateContent(taskArr) {
-  this.innerText = this.innerText.trim().replace(/\s+/g, ' ');
-  if (this.innerText === '') {
-    this.innerText = oldText;
+// Updates task and trims it (remove extra spaces)
+export function updateContent(event, taskArr) {
+  event.target.innerText = event.target.innerText.trim().replace(/\s+/g, ' ');
+  if (event.target.innerText === '') {
+    event.target.innerText = oldText;
   }
 
-  taskArr[this.parentElement.parentElement.id].description = this.innerText;
+  taskArr[event.target.parentElement.parentElement.id].description = event.target.innerText;
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
 }
