@@ -8,7 +8,7 @@ export function checkStatus(event, taskArr) {
     event.target.parentElement.parentElement.classList.toggle('completed-container');
   }
 
-  taskArr[event.target.parentElement.parentElement.id].completed = event.target.checked;
+  taskArr[event.target.parentElement.parentElement.id - 1].completed = event.target.checked;
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
 }
 
@@ -16,7 +16,7 @@ export function checkStatus(event, taskArr) {
 export function completedStyle(status, i) {
   if (status.completed) {
     document.getElementsByClassName('task-label')[i].classList.toggle('completed');
-    document.getElementById(i).classList.toggle('completed-container');
+    document.getElementById(i + 1).classList.toggle('completed-container');
   }
 }
 

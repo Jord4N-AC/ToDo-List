@@ -12,6 +12,6 @@ export function updateContent(event, taskArr) {
     event.target.innerText = oldText;
   }
 
-  taskArr[event.target.parentElement.parentElement.id].description = event.target.innerText;
+  taskArr[event.target.parentElement.parentElement.id - 1].description = event.target.innerText;
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
 }

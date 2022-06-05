@@ -8,7 +8,7 @@ export default function loadContent(
   if (localData) {
     taskArr = localData;
     taskArr.forEach((task, i, arr) => {
-      createAppendTask(task.description, arr, i, taskList,
+      createAppendTask(task.description, arr, (i + 1), taskList,
         checkStatus, checkTask, removeTask, saveOldContent, updateContent);
       completedStyle(task, i);
     });

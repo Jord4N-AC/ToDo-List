@@ -42,7 +42,7 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
     showMessage(
       repeatedMessage,
       document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
-        === inputTrimed.toLowerCase())),
+        === inputTrimed.toLowerCase()) + 1),
       'task-repeated',
       'Repeated Tasks',
       'highlight-repeated',
@@ -50,7 +50,7 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
     );
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     saveData(inputTrimed, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskArr.length - 1, taskList,
+    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList,
       checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
@@ -72,7 +72,7 @@ addBtn.addEventListener('click', () => {
     showMessage(
       repeatedMessage,
       document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
-        === taskInput.value.toLowerCase())),
+        === taskInput.value.toLowerCase()) + 1),
       'task-repeated',
       'Repeated Tasks',
       'highlight-repeated',
@@ -80,7 +80,7 @@ addBtn.addEventListener('click', () => {
     );
   } else if (taskInput.value !== '') {
     saveData(taskInput.value, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskArr.length - 1, taskList,
+    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList,
       checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
@@ -102,7 +102,7 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
     showMessage(
       repeatedMessage,
       document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
-        === inputTrimed.toLowerCase())),
+        === inputTrimed.toLowerCase()) + 1),
       'task-repeated',
       'Repeated Tasks',
       'highlight-repeated',
@@ -111,7 +111,7 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     // taskInput.value = inputTrimed;
     saveData(inputTrimed, taskArr);
-    createAppendTask(inputTrimed, taskArr, taskArr.length - 1, taskList,
+    createAppendTask(inputTrimed, taskArr, taskArr.length, taskList,
       checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,

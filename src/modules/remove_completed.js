@@ -3,7 +3,7 @@
 export default function removeAllCompleted(taskArr, taskList, newArr) {
   newArr = taskArr.filter((task, i) => {
     if (task.completed) {
-      document.getElementById(i).remove();
+      document.getElementById(i + 1).remove();
     }
     return task.completed !== true;
   });
@@ -12,8 +12,8 @@ export default function removeAllCompleted(taskArr, taskList, newArr) {
   taskArr.push(...newArr);
 
   taskArr.forEach((task, i) => {
-    task.index = i;
-    taskList.children[i].id = i;
+    task.index = i + 1;
+    taskList.children[i].id = i + 1;
   });
 
   localStorage.setItem('taskArray', JSON.stringify(taskArr));

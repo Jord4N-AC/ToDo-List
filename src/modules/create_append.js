@@ -5,7 +5,7 @@ export default function createAppendTask(
   checkStatus, checkTask, removeTask, saveOldContent, updateContent,
 ) {
   const taskElement = `
-            <li id="${taskList.childElementCount}" class="task-item box-format">
+            <li id="${i}" class="task-item box-format">
                 <div class="task-content">
                     <input class="pointer task-input" type="checkbox">
                     <label class="task-label" contenteditable="true">${task}</label>
@@ -18,7 +18,7 @@ export default function createAppendTask(
 
   taskList.insertAdjacentHTML('beforeend', taskElement);
 
-  taskList.lastChild.children[0].children[0].checked = taskArr[i].completed;
+  taskList.lastChild.children[0].children[0].checked = taskArr[i - 1].completed;
 
   taskList.lastChild.children[0].children[0].addEventListener('change', (event) => {
     checkStatus(event, taskArr);
