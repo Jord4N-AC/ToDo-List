@@ -28,8 +28,16 @@ export default function createAppendTask(
   taskList.lastChild.children[1].children[0].addEventListener('click', (event) => {
     removeTask(event, taskArr, taskList);
   });
-  taskList.lastChild.children[0].children[1].addEventListener('click', saveOldContent, true);
+
+  taskList.lastChild.children[0].children[1].addEventListener('focus', saveOldContent);
   taskList.lastChild.children[0].children[1].addEventListener('blur', (event) => {
     updateContent(event, taskArr);
+  });
+
+  taskList.lastChild.children[0].children[1].addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      updateContent(event, taskArr);
+      event.target.previousElementSibling.focus();
+    }
   });
 }
