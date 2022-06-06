@@ -39,6 +39,7 @@ body {
 #list-header {
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-image: linear-gradient(to bottom right, rgba(135, 135, 202, 0.73), rgba(197, 146, 188, 0.736));
 }
 
@@ -48,11 +49,27 @@ body {
   margin: 0;
 }
 
+#undo-refesh-container .fa {
+  padding: 5px;
+}
+
 .fa {
   font-size: 24px;
   color: var(--primary-color);
-
+  
   transition: transform 0.6s, text-shadow 0.2s;
+}
+
+.fa-undo {
+  font-size: 22px;
+}
+
+.fa-undo:hover {
+  text-shadow: 0 0 12px rgb(217, 103, 3);
+}
+
+.fa-refresh {
+  font-size: 34px;  
 }
 
 .fa-refresh:hover {
