@@ -51,10 +51,17 @@ body {
 .fa {
   font-size: 24px;
   color: var(--primary-color);
+
+  transition: transform 0.6s, text-shadow 0.2s;
 }
 
 .fa-refresh:hover {
   text-shadow: 0 0 12px rgb(3, 217, 3);
+  /* transform: rotateY(180deg); */
+}
+
+.fa-refresh:active {
+  transform: rotate(360deg) scale(1.2);
 }
 
 .pointer {
