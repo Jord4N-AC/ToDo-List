@@ -2,6 +2,7 @@ import './style.css';
 
 import {
   taskList, taskInput, addBtn, taskForm, clearBtn, successMessage, repeatedMessage,
+  redoIcon, clearAllIcon,
 } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
 import saveData from './modules/save_data.js';
@@ -14,10 +15,14 @@ import loadContent from './modules/load_content.js';
 import { checkStatus, completedStyle, checkTask } from './modules/task_status.js';
 import { saveOldContent, updateContent } from './modules/edit_task.js';
 
+import clearAllTask from './modules/clearall.js';
+
 const taskArr = loadContent(
   createAppendTask, taskList, checkStatus, completedStyle,
   checkTask, removeTask, saveOldContent, updateContent,
 );
+
+const oldArr = [];
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -127,4 +132,12 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
 
 clearBtn.addEventListener('click', () => {
   removeAllCompleted(taskArr, taskList);
+});
+
+clearAllIcon[0].addEventListener('click', (event) => {
+  clearAllTask(event, oldArr, taskArr, taskList, redoIcon);
+});
+
+window.addEventListener('click', () => {
+  console.log(oldArr);
 });

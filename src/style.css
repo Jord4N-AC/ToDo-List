@@ -61,15 +61,59 @@ body {
 }
 
 .fa-undo {
+  display: none;
   font-size: 22px;
+  
+  animation: show-undo 0.4s;
+}
+
+@keyframes show-undo {
+  from {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    color:rgb(194, 194, 194);
+    text-shadow: 0 0 12px rgb(217, 3, 3);
+  }  
+  to {
+    text-shadow: 0 0 12px rgb(217, 3, 3);
+  }
 }
 
 .fa-undo:hover {
-  text-shadow: 0 0 12px rgb(217, 103, 3);
+  text-shadow: 0 0 12px rgb(9, 218, 255);
 }
 
+/* Class To Toggle */
+.fade-undo-icon {
+  animation: fade-undo 0.4s;
+}
+
+@keyframes fade-undo {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Refresh Icon (Clear All) */
 .fa-refresh {
   font-size: 34px;  
+  animation: show-refresh 0.4s;
+}
+
+@keyframes show-refresh {
+  from {
+    color:rgb(255, 255, 255);
+  } 
+  to {
+    transform: scale(1.2);
+  }
 }
 
 .fa-refresh:hover {
@@ -77,8 +121,13 @@ body {
   /* transform: rotateY(180deg); */
 }
 
-.fa-refresh:active {
-  transform: rotate(360deg) scale(1.2);
+.disable-refesh-icon {
+  color: rgba(121, 107, 107, 0.776);
+  pointer-events: none;
+}
+
+.disable-refesh-icon:hover {
+  text-shadow: none;
 }
 
 .pointer {
