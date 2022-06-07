@@ -1,6 +1,6 @@
 // Create a Book and Add event listeners
 export default function createAppendTask(
-  task, taskArr, i, taskList,
+  task, taskArr, i, taskList, taskInput,
   // events
   checkStatus, checkTask, removeTask, saveOldContent, updateContent,
 ) {
@@ -35,9 +35,20 @@ export default function createAppendTask(
   });
 
   taskList.lastChild.children[0].children[1].addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      updateContent(event, taskArr);
-      event.target.previousElementSibling.focus();
+    if (event.key === 'Enter'
+      && event.target.closest('.task-item').nextElementSibling
+      ) {
+        updateContent(event, taskArr);
+        
+      event.target.closest('.task-item').nextElementSibling
+      .getElementsByClassName('task-label')[0].focus();
+      
+      event.preventDefault();
+    } else if (event.key === 'Enter'
+      && !event.target.closest('.task-item').nextElementSibling
+      ) {
+        taskInput.focus();
+        event.preventDefault();
     }
   });
 }

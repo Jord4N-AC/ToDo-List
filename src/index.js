@@ -19,7 +19,7 @@ import clearAllTask from './modules/clearall.js';
 import { undoClearAll, deletedOldContent } from './modules/undo_clearall.js';
 
 const taskArr = loadContent(
-  createAppendTask, taskList, checkStatus, completedStyle,
+  createAppendTask, taskList, taskInput, checkStatus, completedStyle,
   checkTask, removeTask, saveOldContent, updateContent,
 );
 
@@ -57,7 +57,7 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(inputTrimed, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList,
+    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList, taskInput,
       checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
@@ -88,7 +88,7 @@ addBtn.addEventListener('click', () => {
   } else if (taskInput.value !== '') {
     deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(taskInput.value, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList,
+    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList, taskInput,
       checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
@@ -120,7 +120,7 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
     // taskInput.value = inputTrimed;
     deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(inputTrimed, taskArr);
-    createAppendTask(inputTrimed, taskArr, taskArr.length, taskList,
+    createAppendTask(inputTrimed, taskArr, taskArr.length, taskList, taskInput,
       checkStatus, checkTask, removeTask, saveOldContent, updateContent);
     showMessage(
       successMessage,
@@ -144,9 +144,5 @@ clearAllIcon[0].addEventListener('click', (event) => {
 
 redoIcon[0].addEventListener('click', (event) => {
   undoClearAll(event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr,
-    taskInput, taskList, checkStatus, checkTask, removeTask, saveOldContent, updateContent);
-});
-
-window.addEventListener('click', () => {
-  // console.log(oldArr);
+    taskList, taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent);
 });

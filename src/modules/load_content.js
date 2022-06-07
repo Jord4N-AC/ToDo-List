@@ -1,6 +1,6 @@
 // Load content from localStorage and return an Array
 export default function loadContent(
-  createAppendTask, taskList, checkStatus, completedStyle,
+  createAppendTask, taskList, taskInput, checkStatus, completedStyle,
   checkTask, removeTask, saveOldContent, updateContent,
   taskArr = [],
   localData = JSON.parse(localStorage.getItem('taskArray')),
@@ -8,7 +8,7 @@ export default function loadContent(
   if (localData) {
     taskArr = localData;
     taskArr.forEach((task, i, arr) => {
-      createAppendTask(task.description, arr, (i + 1), taskList,
+      createAppendTask(task.description, arr, (i + 1), taskList, taskInput,
         checkStatus, checkTask, removeTask, saveOldContent, updateContent);
       completedStyle(task, i);
     });

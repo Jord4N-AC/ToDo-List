@@ -1,8 +1,8 @@
 // Render all Tasks deleted from clear all icon
 
 export function undoClearAll(
-    event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr, taskInput,
-    taskList, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+    event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr, taskList, 
+    taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
     ) {
     if (oldArr.length) {
       taskArr.push(...oldArr);
@@ -10,7 +10,7 @@ export function undoClearAll(
   
       taskArr.forEach((task) => {
         createAppendTask(
-          task.description, taskArr, task.index, taskList,
+          task.description, taskArr, task.index, taskList, taskInput,
           checkStatus, checkTask, removeTask, saveOldContent, updateContent,
         );
         completedStyle(task, task.index - 1);
