@@ -1,7 +1,7 @@
 // Remove all tasks, save content to retrieve it before add a new book
 
 export default function clearAllTask(
-  event, oldArr, taskArr, taskList, redoIcon,
+  event, oldArr, taskArr, taskList, taskInput, redoIcon,
   tasks = document.querySelectorAll('.task-item'),
   ) {
     if(taskList.childElementCount) {
@@ -19,5 +19,7 @@ export default function clearAllTask(
       localStorage.setItem('taskArray', JSON.stringify(taskArr));
       
       redoIcon[0].style.display = 'initial';
+
+      taskInput.focus();
     }
 }

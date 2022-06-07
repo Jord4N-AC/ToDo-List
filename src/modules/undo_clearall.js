@@ -1,7 +1,7 @@
 // Render all Tasks deleted from clear all icon
 
-export default function undoClearALl(
-    event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr,
+export function undoClearAll(
+    event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr, taskInput,
     taskList, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
     ) {
     if (oldArr.length) {
@@ -18,12 +18,22 @@ export default function undoClearALl(
   
       oldArr.length = 0;
       event.target.style.transform += 'rotate(-360deg)';
-      clearAllIcon[0].classList.remove('disable-refesh-icon');
-  
       event.target.classList.add('fade-undo-icon');
+      clearAllIcon[0].classList.remove('disable-refesh-icon');
   
       setTimeout(() => {
         event.target.style.display = 'none';
       }, 400);
     }
+    taskInput.focus();
   }
+
+  export function deletedOldContent(oldArr, redoIcon, clearAllIcon) {
+  if (oldArr.length) {
+    redoIcon[0].classList.remove('fade-undo-icon');
+    redoIcon[0].style.display = 'none';
+    clearAllIcon[0].classList.remove('disable-refesh-icon');
+
+    oldArr.length = 0;
+  }
+}
