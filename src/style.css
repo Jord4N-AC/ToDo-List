@@ -41,6 +41,8 @@ body {
   align-items: center;
   flex-wrap: wrap;
   background-image: linear-gradient(to bottom right, rgba(135, 135, 202, 0.73), rgba(197, 146, 188, 0.736));
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 #list-header h1 {
@@ -49,6 +51,43 @@ body {
   margin: 0;
 }
 
+/* Book Counters */
+#counters {
+  display: flex;
+  align-items: stretch;
+  background-color: #f3f33a44;
+  padding: 5px;
+  margin: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.503);
+}
+
+.counter-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* border: 1px solid #545862; */
+}
+
+.counter-column span,
+.counter-column i {
+  padding: 0 8px;
+}
+
+.fa-eye {
+  text-shadow: 0 0 5px #3bbf1e;
+}
+
+.fa-eye:hover {
+  text-shadow: 0 0 10px #c8f8be;
+}
+
+.fa-eye-slash {
+  text-shadow: 0 0 5px #c91e1e;
+}
+
+/* Undo, Clear All */
 #undo-refesh-container .fa {
   padding: 5px;
 }
@@ -56,14 +95,14 @@ body {
 .fa {
   font-size: 24px;
   color: var(--primary-color);
-  
+
   transition: transform 0.6s, text-shadow 0.2s;
 }
 
 .fa-undo {
   display: none;
   font-size: 22px;
-  
+
   animation: show-undo 0.4s;
 }
 
@@ -77,7 +116,7 @@ body {
   50% {
     color:rgb(194, 194, 194);
     text-shadow: 0 0 12px rgb(217, 3, 3);
-  }  
+  }
   to {
     text-shadow: 0 0 12px rgb(217, 3, 3);
   }
@@ -103,14 +142,14 @@ body {
 
 /* Refresh Icon (Clear All) */
 .fa-refresh {
-  font-size: 34px;  
+  font-size: 34px;
   animation: show-refresh 0.4s;
 }
 
 @keyframes show-refresh {
   from {
     color:rgb(255, 255, 255);
-  } 
+  }
   to {
     transform: scale(1.2);
   }
