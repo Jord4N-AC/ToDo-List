@@ -11,3 +11,8 @@ export const repeatedMessage = document.getElementById('repeated-msg');
 
 export const redoIcon = document.getElementsByClassName('fa-undo');
 export const clearAllIcon = document.getElementsByClassName('fa-refresh');
+
+// Counters
+export const allCounter = document.getElementById('all-counter');
+export const pendingCounter = document.getElementById('pending-counter');
+export const completedCounter = document.getElementById('completed-counter');

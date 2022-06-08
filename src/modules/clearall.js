@@ -2,6 +2,7 @@
 
 export default function clearAllTask(
   event, oldArr, taskArr, taskList, taskInput, redoIcon,
+  updateCounters, allCounter, pendingCounter, completedCounter,
   tasks = document.querySelectorAll('.task-item'),
   ) {
     if(taskList.childElementCount) {
@@ -20,6 +21,7 @@ export default function clearAllTask(
       
       redoIcon[0].style.display = 'initial';
 
+      updateCounters(allCounter, pendingCounter, completedCounter);
       taskInput.focus();
     }
 }

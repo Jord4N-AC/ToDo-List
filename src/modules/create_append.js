@@ -3,6 +3,7 @@ export default function createAppendTask(
   task, taskArr, i, taskList, taskInput,
   // events
   checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+  updateCounters, allCounter, pendingCounter, completedCounter,
 ) {
   const taskElement = `
             <li id="${i}" class="task-item box-format">
@@ -21,12 +22,13 @@ export default function createAppendTask(
   taskList.lastChild.children[0].children[0].checked = taskArr[i - 1].completed;
 
   taskList.lastChild.children[0].children[0].addEventListener('change', (event) => {
-    checkStatus(event, taskArr);
+    checkStatus(event, taskArr, updateCounters, allCounter, pendingCounter, completedCounter);
   });
   taskList.lastChild.children[0].children[0].addEventListener('keydown', checkTask);
 
   taskList.lastChild.children[1].children[0].addEventListener('click', (event) => {
-    removeTask(event, taskArr, taskList);
+    removeTask(event, taskArr, taskList, updateCounters, allCounter, pendingCounter, 
+      completedCounter);
   });
 
   taskList.lastChild.children[0].children[1].addEventListener('focus', saveOldContent);

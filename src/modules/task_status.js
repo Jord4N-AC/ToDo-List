@@ -1,5 +1,8 @@
 // if check-box is marked it adds a completed style to the task
-export function checkStatus(event, taskArr) {
+export function checkStatus(
+  event, taskArr,
+  updateCounters, allCounter, pendingCounter, completedCounter,
+) {
   if (event.target.checked) {
     event.target.nextElementSibling.classList.toggle('completed');
     event.target.parentElement.parentElement.classList.toggle('completed-container');
@@ -10,6 +13,8 @@ export function checkStatus(event, taskArr) {
 
   taskArr[event.target.parentElement.parentElement.id - 1].completed = event.target.checked;
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
+
+  updateCounters(allCounter, pendingCounter, completedCounter);
 }
 
 // If completed property on object is true it adds completed style (when loading content)

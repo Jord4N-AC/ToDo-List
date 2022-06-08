@@ -2,7 +2,7 @@ import './style.css';
 
 import {
   taskList, taskInput, addBtn, taskForm, clearBtn, successMessage, repeatedMessage,
-  redoIcon, clearAllIcon,
+  redoIcon, clearAllIcon, allCounter, pendingCounter, completedCounter,
 } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
 import saveData from './modules/save_data.js';
@@ -18,9 +18,12 @@ import { saveOldContent, updateContent } from './modules/edit_task.js';
 import clearAllTask from './modules/clearall.js';
 import { undoClearAll, deletedOldContent } from './modules/undo_clearall.js';
 
+import updateCounters from './modules/counters.js';
+
 const taskArr = loadContent(
   createAppendTask, taskList, taskInput, checkStatus, completedStyle,
   checkTask, removeTask, saveOldContent, updateContent,
+  updateCounters, allCounter, pendingCounter, completedCounter,
 );
 
 const oldArr = [];
@@ -58,7 +61,9 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
     deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(inputTrimed, taskArr);
     createAppendTask(taskInput.value, taskArr, taskArr.length, taskList, taskInput,
-      checkStatus, checkTask, removeTask, saveOldContent, updateContent);
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+      updateCounters, allCounter, pendingCounter, completedCounter);
+    updateCounters(allCounter, pendingCounter, completedCounter);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -89,7 +94,9 @@ addBtn.addEventListener('click', () => {
     deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(taskInput.value, taskArr);
     createAppendTask(taskInput.value, taskArr, taskArr.length, taskList, taskInput,
-      checkStatus, checkTask, removeTask, saveOldContent, updateContent);
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+      updateCounters, allCounter, pendingCounter, completedCounter);
+    updateCounters(allCounter, pendingCounter, completedCounter);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -121,7 +128,9 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
     deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(inputTrimed, taskArr);
     createAppendTask(inputTrimed, taskArr, taskArr.length, taskList, taskInput,
-      checkStatus, checkTask, removeTask, saveOldContent, updateContent);
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+      updateCounters, allCounter, pendingCounter, completedCounter);
+    updateCounters(allCounter, pendingCounter, completedCounter);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -135,14 +144,18 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
 });
 
 clearBtn.addEventListener('click', () => {
-  removeAllCompleted(taskArr, taskList);
+  removeAllCompleted(taskArr, taskList,
+    updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
 clearAllIcon[0].addEventListener('click', (event) => {
-  clearAllTask(event, oldArr, taskArr, taskList, taskInput, redoIcon);
+  clearAllTask(event, oldArr, taskArr, taskList, taskInput, redoIcon,
+    updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
 redoIcon[0].addEventListener('click', (event) => {
   undoClearAll(event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr,
-    taskList, taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent);
+    taskList, taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+    updateCounters, allCounter, pendingCounter, completedCounter);
 });
+

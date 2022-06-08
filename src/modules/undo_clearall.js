@@ -3,6 +3,7 @@
 export function undoClearAll(
     event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr, taskList, 
     taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+    updateCounters, allCounter, pendingCounter, completedCounter,
     ) {
     if (oldArr.length) {
       taskArr.push(...oldArr);
@@ -12,6 +13,7 @@ export function undoClearAll(
         createAppendTask(
           task.description, taskArr, task.index, taskList, taskInput,
           checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+          updateCounters, allCounter, pendingCounter, completedCounter,
         );
         completedStyle(task, task.index - 1);
       });
@@ -24,6 +26,8 @@ export function undoClearAll(
       setTimeout(() => {
         event.target.style.display = 'none';
       }, 400);
+
+      updateCounters(allCounter, pendingCounter, completedCounter);
     }
     taskInput.focus();
   }
