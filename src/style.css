@@ -29,6 +29,7 @@ body {
   padding: 15px;
 }
 
+/* Task List */
 #list {
   max-width: 600px;
   margin: 100px auto;
@@ -51,7 +52,7 @@ body {
   margin: 0;
 }
 
-/* Book Counters */
+/* Task Counters */
 #counters {
   display: flex;
   align-items: stretch;
@@ -66,8 +67,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  /* border: 1px solid #545862; */
 }
 
 .counter-column span,
@@ -91,7 +90,7 @@ body {
   text-shadow: 0 0 5px #5a5647;
 }
 
-/* Undo, Clear All */
+/* Undo and Clear All Icons */
 #undo-refesh-container .fa {
   padding: 5px;
 }
@@ -144,7 +143,6 @@ body {
   }
 }
 
-/* Refresh Icon (Clear All) */
 .fa-refresh {
   font-size: 34px;
   animation: show-refresh 0.4s;
@@ -161,7 +159,6 @@ body {
 
 .fa-refresh:hover {
   text-shadow: 0 0 12px rgb(3, 217, 3);
-  /* transform: rotateY(180deg); */
 }
 
 .disable-refesh-icon {
@@ -177,6 +174,7 @@ body {
   cursor: pointer;
 }
 
+/* Task Form */
 input {
   font-size: 18px;
   background-color: transparent;
@@ -210,6 +208,7 @@ input {
   border: 2px solid var(--primary-color);
 }
 
+/* Tasks List */
 ul {
   padding: 0;
   margin: 0;
@@ -266,6 +265,7 @@ ul {
   text-shadow: 0 0 5px rgb(255, 0, 0);
 }
 
+/* Clear All Completed Button */
 #clear-btn {
   justify-content: center;
   font-size: 18px;
