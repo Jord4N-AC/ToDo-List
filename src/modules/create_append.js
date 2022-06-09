@@ -1,8 +1,9 @@
 // Create a Book and Add event listeners
 export default function createAppendTask(
-  task, taskArr, i, taskList,
+  task, taskArr, i, taskList, taskInput,
   // events
   checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+  updateCounters, allCounter, pendingCounter, completedCounter,
 ) {
   const taskElement = `
             <li id="${i}" class="task-item box-format">
@@ -21,12 +22,13 @@ export default function createAppendTask(
   taskList.lastChild.children[0].children[0].checked = taskArr[i - 1].completed;
 
   taskList.lastChild.children[0].children[0].addEventListener('change', (event) => {
-    checkStatus(event, taskArr);
+    checkStatus(event, taskArr, updateCounters, allCounter, pendingCounter, completedCounter);
   });
   taskList.lastChild.children[0].children[0].addEventListener('keydown', checkTask);
 
   taskList.lastChild.children[1].children[0].addEventListener('click', (event) => {
-    removeTask(event, taskArr, taskList);
+    removeTask(event, taskArr, taskList, updateCounters, allCounter, pendingCounter,
+      completedCounter);
   });
 
   taskList.lastChild.children[0].children[1].addEventListener('focus', saveOldContent);
@@ -35,9 +37,20 @@ export default function createAppendTask(
   });
 
   taskList.lastChild.children[0].children[1].addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter'
+      && event.target.closest('.task-item').nextElementSibling
+    ) {
       updateContent(event, taskArr);
-      event.target.previousElementSibling.focus();
+
+      event.target.closest('.task-item').nextElementSibling
+        .getElementsByClassName('task-label')[0].focus();
+
+      event.preventDefault();
+    } else if (event.key === 'Enter'
+      && !event.target.closest('.task-item').nextElementSibling
+    ) {
+      taskInput.focus();
+      event.preventDefault();
     }
   });
 }

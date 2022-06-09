@@ -8,25 +8,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- Messages -->
+    <!-- Messages (success/repeated) -->
     <div id="success-msg" class="msg">✅ Added successfully</div>
     <div id="repeated-msg" class="msg">
         ❌ Task repeated
         <span id="task-repeated-text"></span>
     </div>
     
+    <!-- Task List -->
     <div id="list">
+        <!-- Title, counters table, undo and clear all icons  -->
         <header id="list-header" class="box-format">
             <h1> Today's To Do</h1>
-            <i class="fa fa-refresh pointer"></i>
+            <!-- Task Counters (all, pending and completed) -->
+            <div id="counters">
+                <div id="description-counter" class="counter-column">
+                    <span>All</span>
+                    <span>Pending</span>
+                    <span>Completed</span>
+                </div>
+                <div id="count-conter" class="counter-column">
+                    <span id="all-counter" class=""></span>
+                    <span id="pending-counter" class=""></span>
+                    <span id="completed-counter" class=""></span>
+                </div>
+                <div id="icon-conter" class="counter-column">
+                    <i class="fa fa-eye pointer"></i>
+                    <i class="fa fa-eye fa-eye-slash pointer"></i>
+                    <i class="fa fa-eye fa-eye-slash pointer"></i>
+                </div>
+            </div>
+
+            <!-- Undo and Clear All Icons -->
+            <div id="undo-refesh-container">                
+                <i class="fa fa-undo pointer" title="Undo Clear All"></i>
+                <i class="fa fa-refresh pointer" title="Clear All"></i>
+            </div>
         </header>
+        
+        <!-- Task Form for Adding Tasks -->
         <form id="list-input-group" class="box-format">
             <input id="list-input-text" type="text" placeholder="Add to your list....." required autofocus>
             <input id="list-input-btn" class="pointer" type="submit" value="&#8626;" title="Add button">
         </form>
+
+        <!-- Tasks List -->
         <ul id="list-tasks">
-            <!-- Items added from js -->            
+            <!-- Items will be added from js -->            
         </ul>
+
+        <!-- Clear All Completed Button -->
         <button id="clear-btn" class="box-format pointer" type="button">Clear all completed</button>
     </div>
 </body>
