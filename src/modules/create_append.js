@@ -27,7 +27,7 @@ export default function createAppendTask(
   taskList.lastChild.children[0].children[0].addEventListener('keydown', checkTask);
 
   taskList.lastChild.children[1].children[0].addEventListener('click', (event) => {
-    removeTask(event, taskArr, taskList, updateCounters, allCounter, pendingCounter, 
+    removeTask(event, taskArr, taskList, updateCounters, allCounter, pendingCounter,
       completedCounter);
   });
 
@@ -39,18 +39,18 @@ export default function createAppendTask(
   taskList.lastChild.children[0].children[1].addEventListener('keydown', (event) => {
     if (event.key === 'Enter'
       && event.target.closest('.task-item').nextElementSibling
-      ) {
-        updateContent(event, taskArr);
-        
+    ) {
+      updateContent(event, taskArr);
+
       event.target.closest('.task-item').nextElementSibling
-      .getElementsByClassName('task-label')[0].focus();
-      
+        .getElementsByClassName('task-label')[0].focus();
+
       event.preventDefault();
     } else if (event.key === 'Enter'
       && !event.target.closest('.task-item').nextElementSibling
-      ) {
-        taskInput.focus();
-        event.preventDefault();
+    ) {
+      taskInput.focus();
+      event.preventDefault();
     }
   });
 }

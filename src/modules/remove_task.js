@@ -3,7 +3,7 @@
 export default function removeTask(
   event, taskArr, taskList,
   updateCounters, allCounter, pendingCounter, completedCounter,
-  ) {
+) {
   taskArr.splice(event.target.parentElement.parentElement.getAttribute('id') - 1, 1);
 
   event.target.parentElement.parentElement.remove();

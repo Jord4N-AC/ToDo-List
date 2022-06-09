@@ -149,7 +149,7 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   }
 });
 
-// Remove All Complete Tasks 
+// Remove All Complete Tasks
 clearBtn.addEventListener('click', () => {
   removeAllCompleted(taskArr, taskList,
     updateCounters, allCounter, pendingCounter, completedCounter);
@@ -167,7 +167,6 @@ redoIcon[0].addEventListener('click', (event) => {
     taskList, taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
     updateCounters, allCounter, pendingCounter, completedCounter);
 });
-
 
 // Show Tasks when clicking eye icon
 eyeIcons.forEach((icon, i) => {

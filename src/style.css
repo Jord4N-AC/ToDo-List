@@ -90,22 +90,24 @@ body {
   text-shadow: 0 0 5px #5a5647;
 }
 
+.fa {
+  font-size: 24px;
+  color: var(--primary-color);
+  transition: transform 0.6s, text-shadow 0.2s;
+}
+
+.task-icons .fa {
+  flex: 1 0 auto;
+}
+
 /* Undo and Clear All Icons */
 #undo-refesh-container .fa {
   padding: 5px;
 }
 
-.fa {
-  font-size: 24px;
-  color: var(--primary-color);
-
-  transition: transform 0.6s, text-shadow 0.2s;
-}
-
 .fa-undo {
   display: none;
   font-size: 22px;
-
   animation: show-undo 0.4s;
 }
 
@@ -113,13 +115,16 @@ body {
   from {
     opacity: 0;
   }
+
   30% {
     opacity: 1;
   }
+
   50% {
-    color:rgb(194, 194, 194);
+    color: rgb(194, 194, 194);
     text-shadow: 0 0 12px rgb(217, 3, 3);
   }
+
   to {
     text-shadow: 0 0 12px rgb(217, 3, 3);
   }
@@ -138,6 +143,7 @@ body {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -150,8 +156,9 @@ body {
 
 @keyframes show-refresh {
   from {
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
   }
+
   to {
     transform: scale(1.2);
   }
@@ -255,10 +262,6 @@ ul {
   display: flex;
   justify-content: space-between;
   flex: 0 0 10%;
-}
-
-.task-icons .fa {
-  flex: 1 0 auto;
 }
 
 .fa-trash-o:hover {
