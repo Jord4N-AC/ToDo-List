@@ -34,6 +34,7 @@ taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
+// Hide Messages when type on input
 taskInput.addEventListener('input', () => {
   if (document.getElementsByClassName('task-repeated').length > 0) {
     document.getElementsByClassName('task-repeated')[0].removeAttribute('title');
@@ -44,6 +45,7 @@ taskInput.addEventListener('input', () => {
   }
 });
 
+// Add Task when pressing 'enter' on input
 taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().replace(/\s+/g, ' ')) => {
   if (
     event.key === 'Enter'
@@ -78,6 +80,7 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
   }
 });
 
+// Add Task when clicking Add Button
 addBtn.addEventListener('click', () => {
   taskInput.value = taskInput.value.trim().replace(/\s+/g, ' ');
   if (
@@ -111,6 +114,7 @@ addBtn.addEventListener('click', () => {
   }
 });
 
+// Add Task when pressing 'enter' on Add Button
 addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().replace(/\s+/g, ' ')) => {
   if (
     taskArr.find((task) => task.description.toLowerCase() === inputTrimed.toLowerCase())
@@ -145,16 +149,19 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   }
 });
 
+// Remove All Complete Tasks 
 clearBtn.addEventListener('click', () => {
   removeAllCompleted(taskArr, taskList,
     updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
+// Remove all tasks when clicking refresh icon
 clearAllIcon[0].addEventListener('click', (event) => {
   clearAllTask(event, oldArr, taskArr, taskList, taskInput, redoIcon,
     updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
+// Retieve all removed tasks when clicking undo icon
 redoIcon[0].addEventListener('click', (event) => {
   undoClearAll(event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr,
     taskList, taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
@@ -162,7 +169,7 @@ redoIcon[0].addEventListener('click', (event) => {
 });
 
 
-// Show Tasks clicking eye icon
+// Show Tasks when clicking eye icon
 eyeIcons.forEach((icon, i) => {
   icon.addEventListener('click', (event) => {
     if (i === 0) showAllTasks(event, eyeIcons);
