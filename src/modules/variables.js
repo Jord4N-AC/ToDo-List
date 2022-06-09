@@ -16,3 +16,7 @@ export const clearAllIcon = document.getElementsByClassName('fa-refresh');
 export const allCounter = document.getElementById('all-counter');
 export const pendingCounter = document.getElementById('pending-counter');
 export const completedCounter = document.getElementById('completed-counter');
+
+// Eye Icon
+export const eyeIcons = document.querySelectorAll('.fa-eye');
+// export const eyeIcons = document.getElementsByClassName('fa-eye');

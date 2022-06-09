@@ -2,7 +2,7 @@ import './style.css';
 
 import {
   taskList, taskInput, addBtn, taskForm, clearBtn, successMessage, repeatedMessage,
-  redoIcon, clearAllIcon, allCounter, pendingCounter, completedCounter,
+  redoIcon, clearAllIcon, allCounter, pendingCounter, completedCounter, eyeIcons,
 } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
 import saveData from './modules/save_data.js';
@@ -19,6 +19,8 @@ import clearAllTask from './modules/clearall.js';
 import { undoClearAll, deletedOldContent } from './modules/undo_clearall.js';
 
 import updateCounters from './modules/counters.js';
+
+import { showAllTasks, showPendingTasks, showCompleteTasks } from './modules/show_hide_tasks.js';
 
 const taskArr = loadContent(
   createAppendTask, taskList, taskInput, checkStatus, completedStyle,
@@ -159,3 +161,12 @@ redoIcon[0].addEventListener('click', (event) => {
     updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
+
+// Show Tasks clicking eye icon
+eyeIcons.forEach((icon, i) => {
+  icon.addEventListener('click', (event) => {
+    if (i === 0) showAllTasks(event, eyeIcons);
+    else if (i === 1) showPendingTasks(event, eyeIcons);
+    else if (i === 2) showCompleteTasks(event, eyeIcons);
+  });
+});

@@ -76,15 +76,19 @@ body {
 }
 
 .fa-eye {
-  text-shadow: 0 0 5px #3bbf1e;
+  text-shadow: 0 0 5px #23bfdb;
 }
 
 .fa-eye:hover {
-  text-shadow: 0 0 10px #c8f8be;
+  text-shadow: 0 0 10px rgb(57, 245, 191);
 }
 
 .fa-eye-slash {
-  text-shadow: 0 0 5px #c91e1e;
+  text-shadow: none;
+}
+
+.fa-eye-slash:hover {
+  text-shadow: 0 0 5px #5a5647;
 }
 
 /* Undo, Clear All */
