@@ -1,15 +1,19 @@
-// eslint-disable-next-line import/no-cycle
-import { taskList, taskArr } from './variables.js';
+// Remove a task and update ids
 
-export default function removeTask() {
-  taskArr.splice(this.parentElement.parentElement.getAttribute('id'), 1);
+export default function removeTask(
+  event, taskArr, taskList,
+  updateCounters, allCounter, pendingCounter, completedCounter,
+) {
+  taskArr.splice(event.target.parentElement.parentElement.getAttribute('id') - 1, 1);
 
-  this.parentElement.parentElement.remove();
+  event.target.parentElement.parentElement.remove();
 
   taskArr.forEach((task, i) => {
-    taskList.children[i].id = i;
-    task.index = i;
+    taskList.children[i].id = i + 1;
+    task.index = i + 1;
   });
 
   localStorage.setItem('taskArray', JSON.stringify(taskArr));
+
+  updateCounters(allCounter, pendingCounter, completedCounter);
 }

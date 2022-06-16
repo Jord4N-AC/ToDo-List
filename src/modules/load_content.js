@@ -1,22 +1,23 @@
-// eslint-disable-next-line import/no-cycle
-import { taskList } from './variables.js';
-// eslint-disable-next-line import/no-cycle
-import createAppendTask from './create_append.js';
-// eslint-disable-next-line import/no-cycle
-import { completedStyle } from './task_status.js';
-
-export default function loadContent(taskArr) {
-  const localData = JSON.parse(localStorage.getItem('taskArray'));
-  if (localData !== null) {
+// Load content from localStorage and return an Array
+export default function loadContent(
+  createAppendTask, taskList, taskInput, checkStatus, completedStyle,
+  checkTask, removeTask, saveOldContent, updateContent,
+  updateCounters, allCounter, pendingCounter, completedCounter,
+  taskArr = [],
+  localData = JSON.parse(localStorage.getItem('taskArray')),
+) {
+  if (localData) {
     taskArr = localData;
-    taskArr.forEach((task, i) => {
-      createAppendTask(task.description, task, taskList);
+    taskArr.forEach((task, i, arr) => {
+      createAppendTask(task.description, arr, (i + 1), taskList, taskInput,
+        checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+        updateCounters, allCounter, pendingCounter, completedCounter);
       completedStyle(task, i);
     });
   } else {
-    taskArr = [];
     localStorage.setItem('taskArray', JSON.stringify(taskArr));
   }
 
+  updateCounters(allCounter, pendingCounter, completedCounter);
   return taskArr;
 }

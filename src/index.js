@@ -1,18 +1,40 @@
 import './style.css';
 
 import {
-  taskList, taskInput, addBtn, taskForm, taskArr, clearBtn, successMessage, repeatedMessage,
+  taskList, taskInput, addBtn, taskForm, clearBtn, successMessage, repeatedMessage,
+  redoIcon, clearAllIcon, allCounter, pendingCounter, completedCounter, eyeIcons,
 } from './modules/variables.js';
 import createAppendTask from './modules/create_append.js';
-import clearField from './modules/clear_field.js';
 import saveData from './modules/save_data.js';
+import removeTask from './modules/remove_task.js';
 import removeAllCompleted from './modules/remove_completed.js';
 import showMessage from './modules/alert_messages.js';
+import clearField from './modules/clear_field.js';
+import loadContent from './modules/load_content.js';
+
+import { checkStatus, completedStyle, checkTask } from './modules/task_status.js';
+import { saveOldContent, updateContent } from './modules/edit_task.js';
+
+import clearAllTask from './modules/clearall.js';
+import { undoClearAll, deletedOldContent } from './modules/undo_clearall.js';
+
+import updateCounters from './modules/counters.js';
+
+import { showAllTasks, showPendingTasks, showCompleteTasks } from './modules/show_hide_tasks.js';
+
+const taskArr = loadContent(
+  createAppendTask, taskList, taskInput, checkStatus, completedStyle,
+  checkTask, removeTask, saveOldContent, updateContent,
+  updateCounters, allCounter, pendingCounter, completedCounter,
+);
+
+const oldArr = [];
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
+// Hide Messages when type on input
 taskInput.addEventListener('input', () => {
   if (document.getElementsByClassName('task-repeated').length > 0) {
     document.getElementsByClassName('task-repeated')[0].removeAttribute('title');
@@ -23,6 +45,7 @@ taskInput.addEventListener('input', () => {
   }
 });
 
+// Add Task when pressing 'enter' on input
 taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().replace(/\s+/g, ' ')) => {
   if (
     event.key === 'Enter'
@@ -32,15 +55,19 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
     showMessage(
       repeatedMessage,
       document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
-        === inputTrimed.toLowerCase())),
+        === inputTrimed.toLowerCase()) + 1),
       'task-repeated',
       'Repeated Tasks',
       'highlight-repeated',
       taskInput,
     );
   } else if (inputTrimed !== '' && event.key === 'Enter') {
+    deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(inputTrimed, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskList);
+    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList, taskInput,
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+      updateCounters, allCounter, pendingCounter, completedCounter);
+    updateCounters(allCounter, pendingCounter, completedCounter);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -53,6 +80,7 @@ taskInput.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim
   }
 });
 
+// Add Task when clicking Add Button
 addBtn.addEventListener('click', () => {
   taskInput.value = taskInput.value.trim().replace(/\s+/g, ' ');
   if (
@@ -61,15 +89,19 @@ addBtn.addEventListener('click', () => {
     showMessage(
       repeatedMessage,
       document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
-        === taskInput.value.toLowerCase())),
+        === taskInput.value.toLowerCase()) + 1),
       'task-repeated',
       'Repeated Tasks',
       'highlight-repeated',
       taskInput,
     );
   } else if (taskInput.value !== '') {
+    deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(taskInput.value, taskArr);
-    createAppendTask(taskInput.value, taskArr, taskList);
+    createAppendTask(taskInput.value, taskArr, taskArr.length, taskList, taskInput,
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+      updateCounters, allCounter, pendingCounter, completedCounter);
+    updateCounters(allCounter, pendingCounter, completedCounter);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -82,6 +114,7 @@ addBtn.addEventListener('click', () => {
   }
 });
 
+// Add Task when pressing 'enter' on Add Button
 addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().replace(/\s+/g, ' ')) => {
   if (
     taskArr.find((task) => task.description.toLowerCase() === inputTrimed.toLowerCase())
@@ -90,7 +123,7 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
     showMessage(
       repeatedMessage,
       document.getElementById(taskArr.findIndex((task) => task.description.toLowerCase()
-        === inputTrimed.toLowerCase())),
+        === inputTrimed.toLowerCase()) + 1),
       'task-repeated',
       'Repeated Tasks',
       'highlight-repeated',
@@ -98,8 +131,12 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
     );
   } else if (inputTrimed !== '' && event.key === 'Enter') {
     // taskInput.value = inputTrimed;
+    deletedOldContent(oldArr, redoIcon, clearAllIcon);
     saveData(inputTrimed, taskArr);
-    createAppendTask(inputTrimed, taskArr, taskList);
+    createAppendTask(inputTrimed, taskArr, taskArr.length, taskList, taskInput,
+      checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+      updateCounters, allCounter, pendingCounter, completedCounter);
+    updateCounters(allCounter, pendingCounter, completedCounter);
     showMessage(
       successMessage,
       taskList.children[taskList.childElementCount - 1],
@@ -112,4 +149,30 @@ addBtn.addEventListener('keydown', (event, inputTrimed = taskInput.value.trim().
   }
 });
 
-clearBtn.addEventListener('click', removeAllCompleted);
+// Remove All Complete Tasks
+clearBtn.addEventListener('click', () => {
+  removeAllCompleted(taskArr, taskList,
+    updateCounters, allCounter, pendingCounter, completedCounter);
+});
+
+// Remove all tasks when clicking refresh icon
+clearAllIcon[0].addEventListener('click', (event) => {
+  clearAllTask(event, oldArr, taskArr, taskList, taskInput, redoIcon,
+    updateCounters, allCounter, pendingCounter, completedCounter);
+});
+
+// Retieve all removed tasks when clicking undo icon
+redoIcon[0].addEventListener('click', (event) => {
+  undoClearAll(event, createAppendTask, completedStyle, clearAllIcon, oldArr, taskArr,
+    taskList, taskInput, checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+    updateCounters, allCounter, pendingCounter, completedCounter);
+});
+
+// Show Tasks when clicking eye icon
+eyeIcons.forEach((icon, i) => {
+  icon.addEventListener('click', (event) => {
+    if (i === 0) showAllTasks(event, eyeIcons);
+    else if (i === 1) showPendingTasks(event, eyeIcons);
+    else if (i === 2) showCompleteTasks(event, eyeIcons);
+  });
+});

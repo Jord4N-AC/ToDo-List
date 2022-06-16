@@ -29,6 +29,7 @@ body {
   padding: 15px;
 }
 
+/* Task List */
 #list {
   max-width: 600px;
   margin: 100px auto;
@@ -39,7 +40,10 @@ body {
 #list-header {
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background-image: linear-gradient(to bottom right, rgba(135, 135, 202, 0.73), rgba(197, 146, 188, 0.736));
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 #list-header h1 {
@@ -48,19 +52,136 @@ body {
   margin: 0;
 }
 
+/* Task Counters */
+#counters {
+  display: flex;
+  align-items: stretch;
+  background-color: #f3f33a44;
+  padding: 5px;
+  margin: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.503);
+}
+
+.counter-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.counter-column span,
+.counter-column i {
+  padding: 0 8px;
+}
+
+.fa-eye {
+  text-shadow: 0 0 5px #23bfdb;
+}
+
+.fa-eye:hover {
+  text-shadow: 0 0 10px rgb(57, 245, 191);
+}
+
+.fa-eye-slash {
+  text-shadow: none;
+}
+
+.fa-eye-slash:hover {
+  text-shadow: 0 0 5px #5a5647;
+}
+
 .fa {
   font-size: 24px;
   color: var(--primary-color);
+  transition: transform 0.6s, text-shadow 0.2s;
+}
+
+.task-icons .fa {
+  flex: 1 0 auto;
+}
+
+/* Undo and Clear All Icons */
+#undo-refesh-container .fa {
+  padding: 5px;
+}
+
+.fa-undo {
+  display: none;
+  font-size: 22px;
+  animation: show-undo 0.4s;
+}
+
+@keyframes show-undo {
+  from {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    color: rgb(194, 194, 194);
+    text-shadow: 0 0 12px rgb(217, 3, 3);
+  }
+
+  to {
+    text-shadow: 0 0 12px rgb(217, 3, 3);
+  }
+}
+
+.fa-undo:hover {
+  text-shadow: 0 0 12px rgb(9, 218, 255);
+}
+
+/* Class To Toggle */
+.fade-undo-icon {
+  animation: fade-undo 0.4s;
+}
+
+@keyframes fade-undo {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fa-refresh {
+  font-size: 34px;
+  animation: show-refresh 0.4s;
+}
+
+@keyframes show-refresh {
+  from {
+    color: rgb(255, 255, 255);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
 }
 
 .fa-refresh:hover {
   text-shadow: 0 0 12px rgb(3, 217, 3);
 }
 
+.disable-refesh-icon {
+  color: rgba(121, 107, 107, 0.776);
+  pointer-events: none;
+}
+
+.disable-refesh-icon:hover {
+  text-shadow: none;
+}
+
 .pointer {
   cursor: pointer;
 }
 
+/* Task Form */
 input {
   font-size: 18px;
   background-color: transparent;
@@ -94,6 +215,7 @@ input {
   border: 2px solid var(--primary-color);
 }
 
+/* Tasks List */
 ul {
   padding: 0;
   margin: 0;
@@ -142,14 +264,11 @@ ul {
   flex: 0 0 10%;
 }
 
-.task-icons .fa {
-  flex: 1 0 auto;
-}
-
 .fa-trash-o:hover {
   text-shadow: 0 0 5px rgb(255, 0, 0);
 }
 
+/* Clear All Completed Button */
 #clear-btn {
   justify-content: center;
   font-size: 18px;
