@@ -12,6 +12,11 @@ describe('Add and remove tests', () => {
 
   document.body.innerHTML = `
     <div>
+    <div id="count-conter" class="counter-column">
+      <span id="all-counter" class=""></span>
+      <span id="pending-counter" class=""></span>
+      <span id="completed-counter" class=""></span>
+    </div>
       <ul id="list-tasks">          
       </ul>
     </div>`;
