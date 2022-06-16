@@ -10,6 +10,7 @@ describe('Add and remove tests', () => {
       </div>`;
     const element = document.getElementById('list-tasks');
     createAppendTask('task1', false, element);
+    //createAppendTask('task2', false, element);
     const list = document.querySelectorAll('.task-item');
     expect(list).toHaveLength(1);
   });

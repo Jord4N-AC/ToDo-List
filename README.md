@@ -50,6 +50,12 @@ For deployment please rich out to the owner of this project
 - Twitter: [@lcrodrigues58](https://twitter.com/lcrodrigues58)
 - LinkedIn: [Lucas Costa Rodrigues](https://www.linkedin.com/in/lucascostarodrigues/)
 
+## Authors
+👤 **Ogiogio Victor**
+
+- GitHub: [ogiogiovictor](https://github.com/ogiogiovictor) 
+- LinkedIn: [Ogiogio Victor](https://www.linkedin.com/in/ogiogio-victor-a096a0181/)
+
 
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
