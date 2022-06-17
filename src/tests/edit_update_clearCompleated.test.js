@@ -8,7 +8,7 @@ import createAppendTask from '../modules/create_append.js';
 import removeTask from '../modules/remove_task.js';
 
 
-
+const taskArr = [];
 
 document.body.innerHTML = `
   <div>
@@ -27,3 +27,17 @@ document.body.innerHTML = `
     <!-- Clear All Completed Button -->
     <button id="clear-btn" class="box-format pointer" type="button">Clear all completed</button>
   </div>`;
+
+const taskList = document.getElementById('list-tasks');
+const taskInput = document.getElementById('list-input-text');
+
+const allCounter = document.getElementById('all-counter');
+const pendingCounter = document.getElementById('pending-counter');
+const completedCounter = document.getElementById('completed-counter');
+
+const clearBtn = document.getElementById('clear-btn');
+clearBtn.addEventListener('click', () => {
+  removeAllCompleted(taskArr, taskList,
+    updateCounters, allCounter, pendingCounter, completedCounter);
+});
+
