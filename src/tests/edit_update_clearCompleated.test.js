@@ -50,3 +50,9 @@ for (let i = 1; i < 6; i += 1) {
   updateCounters, allCounter, pendingCounter, completedCounter);
 }
 
+const tasks = document.getElementsByClassName('task-item');
+const taskCheckbox = document.getElementsByClassName('task-input');
+const taskDescription = document.getElementsByClassName('task-label');
+
+const completedTasks = document.getElementsByClassName('completed-container');
+
