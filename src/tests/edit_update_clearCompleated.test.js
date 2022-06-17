@@ -56,3 +56,17 @@ const taskDescription = document.getElementsByClassName('task-label');
 
 const completedTasks = document.getElementsByClassName('completed-container');
 
+
+describe('Edit, Task status, and clear all completed', () =>{
+  test('Edit task description', () => {
+    const newTxt = 'New task 1';
+
+    taskDescription[0].focus();
+    taskDescription[0].innerText = newTxt;
+    taskDescription[0].blur();
+
+    expect(taskDescription[0].innerText).toBe(newTxt);
+    expect(taskArr[0].description).toBe(newTxt);
+  });
+});
+
