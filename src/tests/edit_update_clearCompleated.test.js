@@ -41,3 +41,12 @@ clearBtn.addEventListener('click', () => {
     updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
+
+for (let i = 1; i < 6; i += 1) {
+  taskArr.push({ description: `task ${i}`, completed: false, index: taskArr.length + 1 });
+  createAppendTask(taskArr[i - 1].description, taskArr, taskArr.length, taskList, taskInput,
+  // events
+  checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+  updateCounters, allCounter, pendingCounter, completedCounter);
+}
+
