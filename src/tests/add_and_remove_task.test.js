@@ -1,10 +1,10 @@
-import { taskInput } from './variables.js';
-import { checkStatus, checkTask } from './task_status.js';
-import { saveOldContent, updateContent } from './edit_task.js';
-import updateCounters from './counters.js';
+import { taskInput } from '../modules/variables.js';
+import { checkStatus, checkTask } from '../modules/task_status.js';
+import { saveOldContent, updateContent } from '../modules/edit_task.js';
+import updateCounters from '../modules/counters.js';
 
-import createAppendTask from './create_append.js';
-import removeTask from './remove_task.js';
+import createAppendTask from '../modules/create_append.js';
+import removeTask from '../modules/remove_task.js';
 
 describe('Add and remove tests', () => {
   const taskArr = [];
