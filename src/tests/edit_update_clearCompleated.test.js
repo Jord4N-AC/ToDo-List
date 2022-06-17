@@ -68,5 +68,14 @@ describe('Edit, Task status, and clear all completed', () =>{
     expect(taskDescription[0].innerText).toBe(newTxt);
     expect(taskArr[0].description).toBe(newTxt);
   });
+
+  test('Update task Status (completed/pending)', () => {
+    taskCheckbox[1].click();
+    taskCheckbox[2].click();
+
+    expect(taskCheckbox[1].checked).toBe(true);
+    expect(taskCheckbox[2].checked).toBe(true);
+    expect(completedTasks).toHaveLength(2);
+  });
 });
 
