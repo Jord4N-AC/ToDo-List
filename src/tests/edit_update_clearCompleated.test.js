@@ -7,7 +7,6 @@ import updateCounters from '../modules/counters.js';
 import createAppendTask from '../modules/create_append.js';
 import removeTask from '../modules/remove_task.js';
 
-
 const taskArr = [];
 
 document.body.innerHTML = `
@@ -41,13 +40,12 @@ clearBtn.addEventListener('click', () => {
     updateCounters, allCounter, pendingCounter, completedCounter);
 });
 
-
 for (let i = 1; i < 6; i += 1) {
   taskArr.push({ description: `task ${i}`, completed: false, index: taskArr.length + 1 });
   createAppendTask(taskArr[i - 1].description, taskArr, taskArr.length, taskList, taskInput,
   // events
-  checkStatus, checkTask, removeTask, saveOldContent, updateContent,
-  updateCounters, allCounter, pendingCounter, completedCounter);
+    checkStatus, checkTask, removeTask, saveOldContent, updateContent,
+    updateCounters, allCounter, pendingCounter, completedCounter);
 }
 
 const tasks = document.getElementsByClassName('task-item');
@@ -56,8 +54,7 @@ const taskDescription = document.getElementsByClassName('task-label');
 
 const completedTasks = document.getElementsByClassName('completed-container');
 
-
-describe('Edit, Task status, and clear all completed', () =>{
+describe('Edit, Task status, and clear all completed', () => {
   test('Edit task description', () => {
     const newTxt = 'New task 1';
 
@@ -77,11 +74,11 @@ describe('Edit, Task status, and clear all completed', () =>{
     expect(taskCheckbox[2].checked).toBe(true);
     expect(completedTasks).toHaveLength(2);
   });
-  
+
   test('Remove all completed Tasks', () => {
     clearBtn.click();
-    
-   expect(completedTasks).toHaveLength(0);
-   expect(tasks).toHaveLength(3);
+
+    expect(completedTasks).toHaveLength(0);
+    expect(tasks).toHaveLength(3);
   });
 });
