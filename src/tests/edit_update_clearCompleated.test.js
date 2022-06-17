@@ -77,5 +77,11 @@ describe('Edit, Task status, and clear all completed', () =>{
     expect(taskCheckbox[2].checked).toBe(true);
     expect(completedTasks).toHaveLength(2);
   });
+  
+  test('Remove all completed Tasks', () => {
+    clearBtn.click();
+    
+   expect(completedTasks).toHaveLength(0);
+   expect(tasks).toHaveLength(3);
+  });
 });
-
