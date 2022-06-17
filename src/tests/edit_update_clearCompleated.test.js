@@ -17,7 +17,7 @@ document.body.innerHTML = `
       <span id="pending-counter" class=""></span>
       <span id="completed-counter" class=""></span>
     </div>
-    <!-- Task Form for Adding Tasks -->
+   
     <form id="list-input-group" class="box-format">
         <input id="list-input-text" type="text" placeholder="Add to your list....." required autofocus>
         <input id="list-input-btn" class="pointer" type="submit" value="&#8626;" title="Add button">
