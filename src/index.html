@@ -7,6 +7,19 @@
         <title>To-Do List</title>
     </head>
     <body>
-        <h1>Hello webpack!</h1>
+        <div id="list">
+            <header id="list-header">
+                <h1> Today's To Do</h1>
+                <i class="fa fa-refresh"></i>
+            </header>
+            <div id="list-input">
+                <input type="text" placeholder="Add to your list....." required>
+                <input type="button" value="&#8626;">
+            </div>
+            <ul id="list-tasks">
+                <!-- Items added from js -->
+            </ul>
+            <button id="clear-btn" type="button">Clear all completed</button>
+        </div>
     </body>
 </html>
