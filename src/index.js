@@ -27,3 +27,12 @@ const createAppendTask = ({ description: taskContent, completed: taskStatus }) =
       `;
     taskList.insertAdjacentHTML('beforeend', taskElement);
 }
+
+// Render All Tasks
+const renderAllTasks = (taskArr) => {
+    taskArr.forEach((task) => {
+        createAppendTask(task);
+    });
+}
+
+renderAllTasks(taskArr);
