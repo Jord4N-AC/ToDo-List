@@ -78,3 +78,27 @@ input {
 #list-input-btn:hover {
   border: 2px solid var(--primary-color);
 }
+
+/* Tasks List */
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+#clear-btn {
+  justify-content: center;
+  font-size: 18px;
+  background-color: #f6f6f6;
+  width: 100%;
+  border: none;
+  margin: auto;
+}
+
+#clear-btn:hover {
+  text-decoration: underline;
+}
+
+#clear-btn:active {
+  text-decoration: none;
+  box-shadow: 0 0 12px inset rgb(242, 129, 24);
+}
