@@ -44,3 +44,37 @@ body {
 .fa-refresh:hover {
   text-shadow: 0 0 12px rgb(3, 217, 3);
 }
+
+/* List Input */
+input {
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+}
+
+#list-input-group {
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-image: linear-gradient(to bottom right, rgba(72, 206, 255, 0.187), rgba(255, 197, 81, 0.227));
+}
+
+#list-input-text {
+  font-style: italic;
+  flex: 1 1 auto;
+  outline: transparent;
+}
+
+#list-input-text:hover::placeholder {
+  text-shadow: 0 0 5px orange;
+}
+
+#list-input-btn {
+  font-size: 22px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+#list-input-btn:hover {
+  border: 2px solid var(--primary-color);
+}
