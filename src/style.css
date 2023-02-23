@@ -1,0 +1,46 @@
+:root {
+  --primary-color: #545862;
+  --secondary-color: #999;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  color: var(--primary-color);
+
+  /* background-color: rgb(171, 206, 209); */
+
+  margin: auto;
+}
+
+/* List Header */
+#list-header {
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, rgba(135, 135, 202, 0.73), rgba(197, 146, 188, 0.736));
+}
+
+#list-header h1 {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.fa {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.fa-refresh:hover {
+  text-shadow: 0 0 12px rgb(3, 217, 3);
+}
