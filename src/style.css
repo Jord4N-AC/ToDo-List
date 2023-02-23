@@ -23,6 +23,13 @@ body {
   margin: auto;
 }
 
+#list {
+  max-width: 600px;
+  margin: 100px auto;
+  border-radius: 3px;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
 /* List Header */
 #list-header {
   justify-content: space-between;
@@ -101,4 +108,38 @@ ul {
 #clear-btn:active {
   text-decoration: none;
   box-shadow: 0 0 12px inset rgb(242, 129, 24);
+}
+
+/* Task Item */
+.task-item {
+  justify-content: space-between;
+}
+
+.task-item:hover {
+  box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.box-format {
+  display: flex;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.task-icons {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex: 0.08 0 auto;
+}
+
+.task-icons .fa {
+  flex: 1 0 auto;
+}
+
+.fa-trash-o:hover {
+  text-shadow: 0 0 5px rgb(255, 0, 0);
 }
