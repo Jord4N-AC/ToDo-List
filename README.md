@@ -65,7 +65,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Live demo [here](https://jord4n-ac.github.io/ToDo-List/)
+- Not available yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
