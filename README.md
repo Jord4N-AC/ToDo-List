@@ -1,4 +1,4 @@
-`<a name="readme-top"></a>`
+<a name="readme-top"></a>
 
 # 📗 Table of Contents
 
@@ -21,13 +21,13 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [to-do-list] `<a name="about-project"></a>`
+# 📖 [to-do-list] <a name="about-project"></a>
 
 **[to-do-list]** is an app that can help you to organize your daily tasks to make you life easier. Here you can add a new task, mark it as completed, edit it (give it a new discription), delete it or delete all completed tasks. This app was implemented using, webpack to bundle JavaScript, ES6 syntax, and ES6 modules to write modular JavaScript.
 
-## 🛠 Built With `<a name="built-with"></a>`
+## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack `<a name="tech-stack"></a>`
+### Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
@@ -52,7 +52,7 @@
   </ul>
 </details>
 
-### Key Features `<a name="key-features"></a>`
+### Key Features <a name="key-features"></a>
 
 - **[Use webpack to bundle JavaScript.]**
 - **[Use ES6 syntax.]**
@@ -63,13 +63,13 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo `<a name="live-demo"></a>`
+## 🚀 Live Demo <a name="live-demo"></a>
 
-- Live demo not available yet
+- Live demo [here](https://jord4n-ac.github.io/ToDo-List/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 💻 Getting Started `<a name="getting-started"></a>`
+## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
 
@@ -108,7 +108,8 @@ Clone this repository to your desired folder:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Authors `<a name="authors"></a>`
+
+## 👥 Authors <a name="authors"></a>
 
 👤 **Jordan A**
 
@@ -118,18 +119,15 @@ Clone this repository to your desired folder:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🔭 Future Features `<a name="future-features"></a>`
+## 🔭 Future Features <a name="future-features"></a>
 
-- **[Add new task from input]**
-- **[Mark task as completed]**
-- **[Edit a tasks (change description)]**
-- **[Remove a task]**
-- **[Remove all completed tasks]**
-- **[Preserve data on browser]**
+- **[Reorderable list (you can drag an item to reorder)]**
+- **[Improve funcionability]**
+- **[Improve styles]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🤝 Contributing `<a name="contributing"></a>`
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
@@ -137,22 +135,18 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## ⭐️ Show your support `<a name="support"></a>`
+## ⭐️ Show your support <a name="support"></a>
 
 If you like this project it would be a great help if you could star this repo!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🙏 Acknowledgments `<a name="acknowledgements"></a>`
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank to Microverse for providing me the opportunity and inspiration for this work.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 📝 License `<a name="license"></a>`
-
-
-This project is [MIT](./LICENSE) licensed.
-=============================
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
