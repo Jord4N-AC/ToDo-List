@@ -64,9 +64,13 @@ input {
 #list-input-group {
   display: flex;
   padding: 20px;
+
   /* background-color: #96ffdc; */
+
   /* justify-content: space-between; */
+
   /* padding-top: 25px; */
+
   /* padding-bottom: 25px; */
   background-image: linear-gradient(to bottom right, rgba(72, 206, 255, 0.187), rgba(255, 197, 81, 0.227));
 }
