@@ -22,7 +22,7 @@ const appendTask = ({ description: taskContent, completed: taskStatus }) => {
             </li>
     `;
   taskList.insertAdjacentHTML('beforeend', taskElement);
-}
+};
 
 const loadContent = () => {
   taskArr.forEach((task) => {
