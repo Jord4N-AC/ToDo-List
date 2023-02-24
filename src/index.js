@@ -8,7 +8,7 @@ const taskArr = [
   { description: 'Task 3', completed: true, index: 2 },
 ];
 
-function appendTask(taskContent) {
+const appendTask = (taskContent) => {
   const taskElement = `
             <li class="task-item box-format">
                 <div class="task-content">
@@ -24,7 +24,7 @@ function appendTask(taskContent) {
   taskList.insertAdjacentHTML('beforeend', taskElement);
 }
 
-function loadContent() {
+const loadContent = () => {
   taskArr.forEach((task) => {
     appendTask(task.description);
   });
