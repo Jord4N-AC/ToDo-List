@@ -28,6 +28,6 @@ const loadContent = () => {
   taskArr.forEach((task) => {
     appendTask(task);
   });
-}
+};
 
 loadContent();
