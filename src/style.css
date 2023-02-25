@@ -17,9 +17,6 @@ body {
   font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
   font-size: 18px;
   color: var(--primary-color);
-
-  /* background-color: rgb(171, 206, 209); */
-
   margin: auto;
 }
 
